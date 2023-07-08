@@ -1,0 +1,62 @@
+.text{
+    text-align: justify;
+    font-size: 17px;
+    font-style: normal;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.text-heading{
+    font-weight: bold;
+    font-size: large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.heading_3{
+    text-align: center;
+}
+
+.img{
+    width: 300px;
+}
+
+.btn{
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.border_{
+    border: 2px solid;
+    border-left: dotted;
+    border-radius: 8px;
+}
+
+.list_color{
+    background-color: skyblue;
+    color: black;
+}
+
+.alignment{
+    padding-right: 20px;
+}
+
+.total-background{
+    background-color: black;
+    color: white;
+}
+
+.card{
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+
+.card_border{
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 12px white;
+}
