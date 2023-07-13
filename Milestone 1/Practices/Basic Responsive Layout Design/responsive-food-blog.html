@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Blog</title>
+    <style>
+        img{
+            width: 25%;
+            padding: 15px;
+        }
+        .first-content{
+            display: flex;
+        }
+        .second-content{
+            display: flex;
+        }
+        /* Mobile Device */
+        @media screen and (max-width:576px) {
+            img{
+                width: 94%;
+            }
+            .first-content{
+            display: block;
+
+            }
+            .second-content{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="first-content">
+            <img src="./Foods.webp" alt="">
+            <div class="first-description">
+                <h3>Post title will be here</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, non accusamus totam ad odio perferendis obcaecati repellat corrupti excepturi omnis laborum doloremque, accusantium cum eos ullam facilis dolore sapiente molestias?</p>
+                <button>Read More</button>
+            </div>
+        </div>
+        <div class="second-content">
+                <img src="./Foods.webp" alt="">
+            <div class="second-description">
+                <h3>Post title will be here</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, non accusamus totam ad odio perferendis obcaecati repellat corrupti excepturi omnis laborum doloremque, accusantium cum eos ullam facilis dolore sapiente molestias?</p>
+                <button>Read More</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
