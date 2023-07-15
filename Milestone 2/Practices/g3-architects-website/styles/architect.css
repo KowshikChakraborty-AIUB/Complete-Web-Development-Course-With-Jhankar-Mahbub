@@ -79,6 +79,53 @@ nav li a{
     margin-top: 20px;
 }
 
+/* main styles */
+
+main{
+    width: 1440px;
+    margin: 0 auto;
+}
+
+/* features styles */
+
+.features-container{
+    display: flex;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.features-image{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.features-content{
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.features-title{
+    font-size: 45px;
+}
+
+.quick-list{
+    color: #727272;
+    font-weight: 500;
+}
+
+.of-our, .features{
+    font-weight: 700;
+}
+
+.of-our{
+    color: #131313;
+}
+
+.features{
+    color: #FF900E;
+}
+
 /* Responsive Media Queries */
 
 /* For small devices */
