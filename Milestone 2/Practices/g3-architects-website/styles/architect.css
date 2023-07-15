@@ -133,6 +133,48 @@ main{
     padding-bottom: 30px;
 }
 
+/* facts styles */
+
+.facts-title{
+    color: #131313;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.facts-description{
+    color: #727272;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.facts-card{
+    display: flex;
+    justify-content: space-around;
+}
+
+.facts-card .card{
+    border-radius: 8px;
+    border: 1px solid #FF900E;
+    text-align: center;
+    padding: 50px 60px;
+}
+
+.facts-card .card-stats{
+    color: #424242;
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+
+.facts-card .card-title{
+    color: #727272;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 7px;
+}
+
 /* Responsive Media Queries */
 
 /* For small devices */
