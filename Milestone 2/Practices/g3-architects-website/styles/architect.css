@@ -126,6 +126,13 @@ main{
     color: #FF900E;
 }
 
+.features-description{
+    color: #727272;
+    font-size: 1rem;
+    font-weight: 400;
+    padding-bottom: 30px;
+}
+
 /* Responsive Media Queries */
 
 /* For small devices */
@@ -134,8 +141,18 @@ main{
     header{
         padding: 20px;
     }
-    nav{
+    nav, .features-container{
         flex-direction: column;
+    }
+    main{
+        width: 100%;
+    }
+    .features-image{
+        grid-template-columns: 1fr;
+    }
+    .features-content{
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
@@ -145,7 +162,10 @@ main{
     header{
         padding: 50px;
     }
-    nav{
+    main{
+        width: 100%;
+    }
+    nav, .features-container{
         flex-direction: column;
     }
 }
