@@ -175,6 +175,31 @@ main{
     margin-top: 7px;
 }
 
+/* Sponsors Style */
+
+.sponsors-container{
+    margin-top: 120px;
+    text-align: center;
+}
+
+.sponsors-title{
+    color: #131313;
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.sponsors-description{
+    color: #727272;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.sponsors-image{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
 /* Responsive Media Queries */
 
 /* For small devices */
@@ -183,7 +208,7 @@ main{
     header{
         padding: 20px;
     }
-    nav, .features-container{
+    nav, .features-container, .facts-card, .sponsors-image{
         flex-direction: column;
     }
     main{
@@ -192,9 +217,22 @@ main{
     .features-image{
         grid-template-columns: 1fr;
     }
-    .features-content{
+    .features-content, .facts-card{
         padding-left: 20px;
         padding-right: 20px;
+    }
+    .facts-card{
+        gap: 20px;
+    }
+    .facts-card .card{
+        padding: 10px;
+    }
+    .sponsors-image img{
+        width: 165px;
+    }
+    .sponsors-image{
+        gap: 40px;
+        align-items: center;
     }
 }
 
@@ -207,7 +245,20 @@ main{
     main{
         width: 100%;
     }
-    nav, .features-container{
+    nav, .features-container, .sponsors-image{
         flex-direction: column;
+    }
+    .facts-card{
+        gap: 10px;
+    }
+    .facts-card .card{
+        padding: 10px;
+    }
+    .sponsors-image img{
+        width: 165px;
+    }
+    .sponsors-image{
+        gap: 40px;
+        align-items: center;
     }
 }
