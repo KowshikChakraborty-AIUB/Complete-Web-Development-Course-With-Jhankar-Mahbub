@@ -133,6 +133,65 @@ main{
     padding-bottom: 30px;
 }
 
+/* features list styles */
+
+.features-list-container{
+    display: flex;
+    margin-top: 120px;
+    gap: 120px;
+}
+
+.features-list-content .features-list-card{
+    margin-bottom: 20px;
+    padding: 30px;
+    border-radius: 8px;
+    background: #FFF;
+    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.06);
+}
+
+.features-list-title{
+    color: #131313;
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.features-list-content .features-list-title{
+    border-left: 5px solid #FF900E;
+    padding-left: 20px;
+}
+
+.features-list-description{
+    color: #727272;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.features-list-card-description{
+    color: #727272;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.ten-years-badge{
+    border-radius: 8px;
+    background: #FF900E;
+    text-align: center;
+    width: 340px;
+    padding: 40px;
+}
+
+.ten-years-badge-title{
+    color: #FFF;
+    font-size: 4rem;
+    font-weight: 700;
+}
+
+.ten-years-badge-description{
+    color: #FFF;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
 /* facts styles */
 
 .facts-title{
