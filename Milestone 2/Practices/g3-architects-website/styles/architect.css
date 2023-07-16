@@ -172,18 +172,26 @@ main{
     font-weight: 400;
 }
 
+.features-list-image img{
+    height: 85%;
+}
+
 .ten-years-badge{
     border-radius: 8px;
     background: #FF900E;
     text-align: center;
     width: 340px;
     padding: 40px;
+    position: relative;
+    bottom: 100px;
+    right: 54px;
 }
 
 .ten-years-badge-title{
     color: #FFF;
     font-size: 4rem;
     font-weight: 700;
+    margin: 0;
 }
 
 .ten-years-badge-description{
@@ -267,7 +275,8 @@ main{
     header{
         padding: 20px;
     }
-    nav, .features-container, .facts-card, .sponsors-image{
+    nav, .features-container, .facts-card, .sponsors-image, 
+    .features-list-container{
         flex-direction: column;
     }
     main{
@@ -279,6 +288,9 @@ main{
     .features-content, .facts-card{
         padding-left: 20px;
         padding-right: 20px;
+    }
+    .features-list-image img{
+        width: 100%;
     }
     .facts-card{
         gap: 20px;
@@ -304,7 +316,7 @@ main{
     main{
         width: 100%;
     }
-    nav, .features-container, .sponsors-image{
+    nav, .features-container, .sponsors-image, .features-list-container{
         flex-direction: column;
     }
     .facts-card{
