@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Manrope:wght@700&family=Poppins:wght@500;600;700&display=swap');
+
+/* Common Styles */
+
+.common-color-font-others, .nav-bar a{
+    color: #3A3A3A;
+    font-family: Poppins;
+}
+
+.common-color-font-collection-text{
+    color: #787885;
+    font-family: Inter;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.common-color-font-footer-text{
+    color: #D9DBE1;
+    font-family: Manrope;
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.btn-primary{
+    border-radius: 41px;
+    background: #E02C6D;
+    padding: 10px 24px;
+    color: white;
+    font-size: 1rem;
+    font-family: Poppins;
+    font-weight: 700;
+    border: none;
+}
+
+/* Navigation Styles */
+
+.nav-container{
+    display: flex;
+    align-items: center;
+    gap: 494px;
+}
+
+.nav-title{
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-left: 120px;
+}
+
+.nav-bar{
+    display: flex;
+    gap: 34px;
+}
+
+.nav-bar a{
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Banner Styles */
+
+.banner-container{
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    gap: 133px;
+    margin-left: 120px;
+}
+
+.banner-content{
+
+    width: 50%;
+    
+}
+
+.banner-title{
+    font-size: 3.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.banner-img-container{
+    width: 50%;
+}
+
+.banner-img{
+    border: 3px solid #F1E4FF;
+    width: 475px;
+    height: 475px;
+    border-radius: 50%;
+    padding-top: 15px;
+
+}
+
+.banner-container button{
+    margin-top: 16px;
+}
