@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pastry Shop</title>
+    <style>
+        label{
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+    <link rel="stylesheet" href="./Styles/nav.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="audio-video.html">Audio-Video</a></li>
+                <li><a href="form.html">Form</a></li>
+                <li><a href="table.html">Table</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Please fill up the form to get tasty Cakes!</h2>
+        <form action="">
+            <label for="name">
+                Your Name: <input id="name" type="text" placeholder="Your Name">
+            </label>
+            <label for="email">
+                Your Email: <input type="email" placeholder="Your Email" name="" id="email">
+            </label>
+            <label for="phone">
+                Phone: <input type="text" placeholder="Your Phone Number" name="" id="phone">
+            </label>
+            <fieldset>
+                <legend>Pick One Category</legend>
+                <label for="butter_cake">
+                    <input type="radio" name="cake" id="butter_cake">Butter Cake
+                </label>
+                <label for="chocolate_cake">
+                    <input type="radio" name="cake" id="chocolate_cake">Chocolate Cake
+                </label>
+                <label for="vanilla_cake">
+                    <input type="radio" name="cake" id="vanilla_cake">Vanilla Cake
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>Pick One/More Decoration Color</legend>
+                <label for="red">
+                    <input type="checkbox" name="color" id="red"> Red
+                </label>
+                <label for="green">
+                    <input type="checkbox" name="color" id="green"> Green
+                </label>
+                <label for="blue">
+                    <input type="checkbox" name="color" id="blue"> Blue
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>Some Instructions</legend>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </fieldset>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+        </form>    
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

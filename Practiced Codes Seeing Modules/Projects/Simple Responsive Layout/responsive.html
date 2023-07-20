@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive</title>
+    <style>
+        body{
+            border: 1.5px solid red;
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .img-container{
+            display: flex;
+        }
+
+        .img-container div{
+            width: 50%;
+        }
+
+        .img-container img{
+            width: 100%;
+        }
+
+        /* Small Device */
+        @media screen and(max-width: 576px) {
+            .img-container{
+                flex-direction: column;
+            }
+            .img-container div{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Seven things you need to do to make a website responsive</h2>
+    <ol>
+        <li>Viewport Meta Tag</li>
+        <li>CSS Relative Unit</li>
+        <li>Body max width and horizontal center align</li>
+        <li>Image Fluid</li>
+        <li>Two column flex and use media query with flex direction</li>
+        <li>Multi Column: Grid layout</li>
+        <li>Menu Responsive: JavaScript needed</li>
+    </ol>
+    <div class="img-container">
+        <div class="">
+            <img src="Foods.webp" alt="">
+        </div>
+        <div class="">
+            <img src="Foods.webp" alt="">
+        </div>
+    </div>
+</body>
+</html>

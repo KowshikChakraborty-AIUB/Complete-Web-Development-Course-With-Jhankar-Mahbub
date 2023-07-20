@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Basic CSS</title>
+    <style>
+        #_1{
+            color: red; /*(ID selector)*/
+        }
+        ul{
+            color: skyblue; /*(Element selector)*/
+        }
+        ol{
+            background-color: crimson; /*(Element selector)*/
+        }
+        .alignment{
+            text-align: center;
+            background-color: aqua;  /*(Class selector)*/
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            border: 1px solid; /* (Universal Selector) */
+        }
+        h1,h2{
+            text-align: right; /* (Grouping Selector) */
+        }
+        input[type='submit']{
+            background-color: #4caf59;  /* (Attribute Selector) */
+            color: white;
+        }
+        input[required]{
+            border: 1px solid red;  /* (Attribute Selector) */
+        }
+    </style>
+</head>
+<body>
+    <h3 style="color: green;">Learning Basic CSS</h3>
+    <h4 style="background-color: blue;">Background Color</h4>
+    <p>CSS meaning: Cascading Style Sheets</p>
+    <ul>
+        <li>Inline</li>
+        <li>Internal/Embedded</li>
+        <li>External</li>
+    </ul>
+    <ol type="I">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+    <p id="_1">Testing using #ID</p>
+    <p class="alignment">Testing using Class CSS</p>
+    <p class="alignment">It's working!!</p>
+    <p class="alignment">Hurray!!!</p>
+    <h1>Testing Grouping Selector</h1>
+    <h2>Testing Grouping Selector</h2>
+
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <input type="submit" value="Submit">
+    </form>
+    <p>Hello <span id="_1">Kowshik</span></p> <!--For designing in small portion-->
+</body>
+</html>

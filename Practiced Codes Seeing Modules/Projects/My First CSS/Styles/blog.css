@@ -1,0 +1,30 @@
+.blog{
+    background-color: aquamarine;
+    text-align: justify;
+    border: 5px solid blue;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: 10px 10px 20px blueviolet;
+}
+
+.second{
+    /* visibility: hidden; It'll not display anything but hidden. (Means there will be existence of content) */
+    /* display: none; It'll not display anything. */
+    /* display: inline;
+    display: inline-block; */
+    /* display: block; */
+}
+
+.header{
+    text-align: center;
+    color: blue;
+    height: 300px;
+    background-image: url('https://images.unsplash.com/photo-1575936123452-b67c3203c357?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60');
+    background-repeat: no-repeat;
+    /* background-repeat: repeat-x;
+    background-repeat: repeat-y; */
+    /* background-size: cover; */
+    /* background-size: contain; */
+    background-size: 800px;
+}

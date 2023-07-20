@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Collage (Now doing Responsive)</title>
+    <style>
+        header{
+            text-align: center;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        .row{
+            height: 400px;
+            display: flex;
+            gap: 5px;
+            margin-bottom: 5px;
+        }
+        .row > div{
+            flex: 1;
+        }
+        .vertical-collage img{
+            height: calc( ( 100% - 5px)/2 );
+        }
+        .square-collage{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 5px;
+        }
+
+        /* Small Device */
+        @media screen and (max-width:576px){
+            .row{
+                flex-direction: column;
+                height: auto;
+            }
+            .square-collage{
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        /* Medium Device */
+        @media screen and (min-width:576px) and (max-width:992px){
+            .row{
+                flex-direction: column;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3>My Picture Collage</h3>
+    </header>
+    <main>
+        <section>
+            <div class="row">
+                <img src="./Foods.webp" alt="">
+            </div>
+            <div class="row">
+                <div>
+                    <img src="./Foods.webp" alt="">
+                </div>
+                <div>
+                    <img src="./Foods.webp" alt="">
+                </div>
+                <div class="vertical-collage">
+                    <img src="./Foods.webp" alt="">
+                    <img src="./Foods.webp" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <img src="./Foods.webp" alt="">
+                </div>
+                <div class="square-collage">
+                    <img src="./Foods.webp" alt="">
+                    <img src="./Foods.webp" alt="">
+                    <img src="./Foods.webp" alt="">
+                    <img src="./Foods.webp" alt="">
+                </div>
+                <div>
+                    <img src="./Foods.webp" alt="">
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
