@@ -43,8 +43,16 @@ function ticketPrice(ticketQuantity){
     }
 }
 
+// const quantity = 250;
+// console.log('Enter the number of tickets you want to buy:', quantity);
+
+// const price = ticketPrice(quantity);
+// console.log('Total Price:', price);
+
+let print = console.log.bind();
+
 const quantity = 250;
-console.log('Enter the number of tickets you want to buy:', quantity);
+print('Enter the number of tickets you want to buy:', quantity);
 
 const price = ticketPrice(quantity);
-console.log('Total Price:', price);
+print('Total Price:', price);
