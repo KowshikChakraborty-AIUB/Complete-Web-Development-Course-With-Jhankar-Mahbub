@@ -12,12 +12,31 @@
     </header>
     <main>
         <h1>Welcome to DOM</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas tenetur necessitatibus architecto! Non veritatis accusantium asperiores minus corporis maxime suscipit nesciunt itaque modi accusamus minima nisi eligendi, sunt quaerat. Hic labore culpa iusto sed ipsum sunt, necessitatibus sapiente. Possimus, id.</p>
         <ul>
             <li>Kowshik</li>
             <li>Kuddus</li>
             <li>kabir</li>
             <li>Kamal</li>
         </ul>
+        <section>
+            <h1 id="fruits-title">Fruits I Like</h1>
+            <ul>
+                <li>Apple</li>
+                <li>Guava</li>
+                <li>Mango</li>
+                <li>Dragon Fruit</li>
+            </ul>
+        </section>
+        <section>
+            <h1 id="places-title">Places I would like to visit</h1>
+            <ul>
+                <li class="important-places">Sunderban</li>
+                <li class="important-places">Sajek Valley</li>
+                <li class="important-places">Sitakunda</li>
+                <li class="important-places">Spotenga</li>
+            </ul>
+        </section>
     </main>
     <script src="./js/dom.js"></script>
     <script>
@@ -25,6 +44,15 @@
         // console.log(liCollection);
         for(li of liCollection){
             console.log(li.innerText);
+        }
+        const fruitsTitle = document.getElementById('fruits-title');
+        console.log(fruitsTitle);
+        const places = document.getElementById('places-title').innerText='My Tour List';
+        console.log(places);
+        const importantPlaces = document.getElementsByClassName('important-places');
+        // console.log(importantPlaces);
+        for(place of importantPlaces){
+            console.log(place.innerText);
         }
     </script>
 </body>

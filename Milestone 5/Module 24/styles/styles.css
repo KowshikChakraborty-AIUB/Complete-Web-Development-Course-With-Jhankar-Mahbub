@@ -4,3 +4,12 @@ h1{
 li{
     color: darkblue;
 }
+#fruits-title{
+    color: aqua;
+}
+#places-title{
+    color: red;
+}
+.important-places{
+    color: gold;
+}
