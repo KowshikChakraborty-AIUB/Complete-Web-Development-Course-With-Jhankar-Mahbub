@@ -19,7 +19,7 @@
             <li>kabir</li>
             <li>Kamal</li>
         </ul>
-        <section>
+        <section class="fruits-container">
             <h1 id="fruits-title">Fruits I Like</h1>
             <ul>
                 <li>Apple</li>
@@ -40,19 +40,43 @@
     </main>
     <script src="./js/dom.js"></script>
     <script>
+        // option-1: getElementsByTagName()
+
         const liCollection = document.getElementsByTagName('li');
         // console.log(liCollection);
         for(li of liCollection){
             console.log(li.innerText);
         }
+
+        // option-2: getElementById()
+
         const fruitsTitle = document.getElementById('fruits-title');
         console.log(fruitsTitle);
         const places = document.getElementById('places-title').innerText='My Tour List';
         console.log(places);
+
+        // option-3: getElementsByClassName()
+
         const importantPlaces = document.getElementsByClassName('important-places');
         // console.log(importantPlaces);
         for(place of importantPlaces){
             console.log(place.innerText);
+        }
+
+        // option-4: querySelectorAll()
+        
+        const someLi = document.querySelectorAll('.fruits-container li');
+        // console.log(someLi);
+        for(li of someLi){
+            console.log(li.innerText);
+        }
+
+        //option-5: querySelector() ==> for getting only first element. [first li in that case]
+
+        const someLi2 = document.querySelector('.fruits-container li');
+        // console.log(someLi2);
+        for(li2 of someLi2){
+            console.log(li2.innerText);
         }
     </script>
 </body>
