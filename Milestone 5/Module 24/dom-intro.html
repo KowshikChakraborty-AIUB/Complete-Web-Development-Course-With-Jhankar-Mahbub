@@ -20,5 +20,12 @@
         </ul>
     </main>
     <script src="./js/dom.js"></script>
+    <script>
+        const liCollection = document.getElementsByTagName('li');
+        // console.log(liCollection);
+        for(li of liCollection){
+            console.log(li.innerText);
+        }
+    </script>
 </body>
 </html>
