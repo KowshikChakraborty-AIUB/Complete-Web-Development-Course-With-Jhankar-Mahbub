@@ -11,8 +11,16 @@ li{
     color: red;
 }
 .important-places{
-    color: gold;
+    color: black;
 }
 .fruits-container li{
     color: deeppink;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.large-text{
+    font-size: 50px;
 }
