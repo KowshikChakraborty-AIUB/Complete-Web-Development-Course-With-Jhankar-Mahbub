@@ -8,6 +8,15 @@
 <body>
     <h1 onclick="console.log(60);">JS DOM Events</h1>
     <button onclick="console.log('Clicked!');">Click Me</button> <!-- have to use single quote ('') [in console log] if want to use string. -->
+
+    <!-- option-1 direct write in the HTML element-->
+    <button onclick="document.body.style.backgroundColor='yellow'">Make Yellow</button>
+    <!-- option-2 -->
+    <button onclick="makeRed()">Make Red</button>
+    <!-- option-3 -->
+    <button id="make-blue">Make Blue</button>
+    <!-- option-4 -->
+    <button id="make-purple">Make Purple</button>
     <script src="./js/event.js"></script>
 </body>
 </html>
