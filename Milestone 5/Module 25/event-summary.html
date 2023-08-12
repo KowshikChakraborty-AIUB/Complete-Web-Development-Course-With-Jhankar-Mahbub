@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM handlers</title>
+</head>
+<body>
+    <h1>Final DOM handlers</h1>
+    <h3 id="handler-status">Hello!</h3>
+    <p id="input-text">Default Text</p>
+    <input id="input-field" type="text">
+    <button id="btn-update">Update</button>
+    <br>
+    <br>
+    <button onclick="handleOnClick()">Click here to change the above text</button>
+    <button id="event-listener">Click here also to see the change</button>
+    <script>
+        function handleOnClick(){
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'I\'m Kowshik Chakraborty !';
+        }
+        document.getElementById('event-listener').addEventListener('click', function(){
+            const handlerStatus = document.getElementById('handler-status');
+            handlerStatus.innerText = 'I\'m Abul Sharkar Boyati !';
+        })
+
+        document.getElementById('btn-update').addEventListener('click', function(){
+            const inputField = document.getElementById('input-field');
+            const inputText = inputField.value;
+            const p = document.getElementById('input-text');
+            p.innerText = inputText;
+            inputField.value = '';
+        })
+    </script>
+</body>
+</html>
