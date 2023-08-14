@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegate</title>
+    <style>
+        ul{
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exploring Event Delegate</h1>
+    <section>
+        <ul id="list-container">
+            <li class="item">Lorem, ipsum dolor.</li>
+            <li class="item">Explicabo, nam eius?</li>
+            <li class="item">Harum, nisi ducimus.</li>
+            <li class="item">Omnis, libero distinctio.</li>
+            <li class="item">Ducimus, sapiente similique.</li>
+            <li class="item">Accusamus, maiores veritatis!</li>
+        </ul>
+        <button id="add-item">add item</button>
+    </section>
+    <script>
+        const items = document.getElementsByClassName('item');
+        // for(const item of items){
+        //     item.addEventListener('click', function(event){
+        //         event.target.parentNode.removeChild(event.target); //I'm saying parent (ul) to remove one of its child (li). Which child? The one that will be clicked on [event.target].
+        //     })
+        // }
+
+        //Event Delegate [Delegating to parent node so that we can also remove new added children by clicking on them.]
+        document.getElementById('list-container').addEventListener('click', function(event){
+            event.target.parentNode.removeChild(event.target);
+        })
+
+
+        document.getElementById('add-item').addEventListener('click',function(){
+            const listContainer = document.getElementById('list-container');
+
+            const li = document.createElement('li'); //adding new children (li) to parent (ul)
+            li.innerText = 'Hello! I\'m Kowshik Chakraborty';
+            li.classList.add('item');
+            listContainer.appendChild(li);
+        })
+    </script>
+</body>
+</html>
