@@ -10,9 +10,9 @@ document.getElementById('btn-submit').addEventListener('click', function(){
 
     // step-4: varify email & password [note: do not use this technique of varifying user/password! it's not the ideal way!]
     if(emails === 'kowshik@gmail.com' && passwords === 'kowshik1234'){
-        console.log('valid user');
+        window.location.href='bank.html';
     }else{
-        console.log('invalid user');
+        alert('invalid user');
     }
 })
 
