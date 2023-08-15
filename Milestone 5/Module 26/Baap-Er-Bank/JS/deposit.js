@@ -5,6 +5,15 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     const newDepositAmountString = userDeposit.value;
     const newDepositAmount = parseFloat(newDepositAmountString);
 
+    // step-7: clear the withdraw field
+    userDeposit.value = '';
+
+    // validation [checking empty or string as input]
+    if(isNaN(newDepositAmount)){
+        alert('Please enter valid numbers.');
+        return;
+    }
+
 
     // step-3: get the previous deposit total amount
     const depositTotalElement = document.getElementById('deposit-total');
@@ -26,5 +35,5 @@ document.getElementById('btn-deposit').addEventListener('click', function(){
     balanceTotalElement.innerText = currentBalanceTotal;
 
     // step-7: clear the deposit field
-    userDeposit.value = '';
+    // userDeposit.value = '';
 })
