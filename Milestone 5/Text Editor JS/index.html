@@ -8,12 +8,12 @@
     <script src="https://kit.fontawesome.com/fada3804d5.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <section class="bg-[#94C4FE] w-3/4 mx-auto rounded p-4">
+    <section class="bg-[#94C4FE] w-3/4 mx-auto align-middle rounded p-4">
         <h2 class="font-medium text-3xl text-center mb-4">Text Editor</h2>
         <div class="bg-[#BED9FD] border-2 border-solid border-black w-3/4 mx-auto">
             <div class="flex justify-between p-2">
                 <div class="flex gap-4">
-                    <p class="font-bold cursor-pointer hover:bg-[#3782F5] px-2 rounded">B</p>
+                    <p class="font-bold cursor-pointer hover:bg-[#3782F5] px-2 rounded" id="make-bold">B</p>
                     <p class="font-bold italic cursor-pointer hover:bg-[#3782F5] px-2 rounded">I</p>
                     <p class="font-bold underline cursor-pointer hover:bg-[#3782F5] px-2 rounded">U</p>
                 </div>
@@ -25,15 +25,19 @@
                 </div>
                 <div class="flex gap-4 mr-[-3rem]">
                     <input type="number" name="" id="" class="w-1/6 rounded">
-                    <p class="cursor-pointer hover:bg-[#3782F5] px-2 rounded">aA</p>
+                    <p class="font-bold cursor-pointer hover:bg-[#3782F5] px-2 rounded">aA</p>
                     <input type="color" name="" id="">
                 </div>
             </div>
             <hr class="border-t-2 border-black mx-2 mb-2">
-            <div class="p-2">
-                <textarea name="text" id="" cols="101" rows="12" placeholder="This is a Text Editor. You can start writing here..."></textarea>
+            <!-- <div class="p-2">
+                <textarea class="pl-2" id="text-area" cols="100" rows="12" placeholder="This is a Text Editor. You can start writing here..."></textarea>
+            </div> -->
+            <div id="text-area" class="bg-white m-2 h-80 pl-2 rounded" contenteditable="true">
+
             </div>
         </div>
     </section>
+    <script src="./index.js"></script>
 </body>
 </html>
