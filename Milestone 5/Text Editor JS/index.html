@@ -14,14 +14,14 @@
             <div class="flex justify-between p-2">
                 <div class="flex gap-4">
                     <p class="font-bold cursor-pointer hover:bg-[#3782F5] px-2 rounded" id="make-bold">B</p>
-                    <p class="font-bold italic cursor-pointer hover:bg-[#3782F5] px-2 rounded">I</p>
-                    <p class="font-bold underline cursor-pointer hover:bg-[#3782F5] px-2 rounded">U</p>
+                    <p class="font-bold italic cursor-pointer hover:bg-[#3782F5] px-2 rounded" id="make-italic">I</p>
+                    <p class="font-bold underline cursor-pointer hover:bg-[#3782F5] px-2 rounded" id="make-underline">U</p>
                 </div>
                 <div class="space-x-2">
-                    <i class="fa-solid fa-align-left cursor-pointer hover:bg-[#3782F5] px-2 py-2 rounded" style="color: #000000;"></i>
-                    <i class="fa-solid fa-align-center cursor-pointer hover:bg-[#3782F5] px-2 py-2 rounded" style="color: #000000;"></i>
-                    <i class="fa-solid fa-align-right cursor-pointer hover:bg-[#3782F5] px-2 py-2 rounded" style="color: #000000;"></i>
-                    <i class="fa-solid fa-align-justify cursor-pointer hover:bg-[#3782F5] px-2 py-2 rounded" style="color: #000000;"></i>
+                    <i class="fa-solid fa-align-left cursor-pointer hover:bg-[#3782F5] px-2 py-2 rounded" style="color: #000000;" id="make-left"></i>
+                    <i class="fa-solid fa-align-center cursor-pointer hover:bg-[#3782F5] px-2 py-2 rounded" style="color: #000000;" id="make-center"></i>
+                    <i class="fa-solid fa-align-right cursor-pointer hover:bg-[#3782F5] px-2 py-2 rounded" style="color: #000000;" id="make-right"></i>
+                    <i class="fa-solid fa-align-justify cursor-pointer hover:bg-[#3782F5] px-2 py-2 rounded" style="color: #000000;" id="make-justify"></i>
                 </div>
                 <div class="flex gap-4 mr-[-3rem]">
                     <input type="number" name="" id="" class="w-1/6 rounded">
@@ -33,11 +33,12 @@
             <!-- <div class="p-2">
                 <textarea class="pl-2" id="text-area" cols="100" rows="12" placeholder="This is a Text Editor. You can start writing here..."></textarea>
             </div> -->
-            <div id="text-area" class="bg-white m-2 h-80 pl-2 rounded" contenteditable="true">
+            <div id="text-area" class="bg-white m-2 h-80 px-2 rounded" contenteditable="true">
 
             </div>
         </div>
     </section>
+    <script src="./utilities.js"></script>
     <script src="./index.js"></script>
 </body>
 </html>
