@@ -59,20 +59,20 @@
                 <!-- Third Card -->
                 <div class="card bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
-                      <img src="./images/triangle.png" alt="Shoes" class="rounded-xl" />
+                      <img src="./images/parallelogram.png" alt="Shoes" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Triangle</h2>
-                      <p>Area (A) = 0.5 x b x h</p>
+                      <h2 class="card-title">Parallelogram</h2>
+                      <p>Area (A) = b x h</p>
                       <p>
-                        <input type="text" placeholder="b" class="border bg-[#F1F1F1] w-20 px-1 text-xl">
+                        <input type="text" placeholder="b" class="border bg-[#F1F1F1] w-20 px-1 text-xl" id="parallelogram-b">
                         <span class="ml-2">cm</span>
-                        <input type="text" placeholder="h" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl">
+                        <input type="text" placeholder="h" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl" id="parallelogram-h">
                         <span class="ml-2">cm</span>
                       </p>
-                      <p class="my-2 text-xl"> Area: <span class="font-bold" id="triangle-area"></span> cm<sup>2</sup></p>
+                      <p class="my-2 text-xl"> Area: <span class="font-bold" id="parallelogram-area"></span> cm<sup>2</sup></p>
                       <div class="card-actions">
-                        <button class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
+                        <button onclick="caculateAreaParallelogram()" class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
                       </div>
                     </div>
                   </div>

@@ -1,38 +1,52 @@
+// re-usable function ==> to reduce duplicate code
+
+function getInputValueById(inputFieldId){
+    const inputField = document.getElementById(inputFieldId);
+    const inputValuestring = inputField.value;
+    const inputValue = parseFloat(inputValuestring);
+    return inputValue;
+}
+
+function displayInputResult(displayResultId, area){
+    const displayResult = document.getElementById(displayResultId)
+    return displayResult.innerText = area;
+}
+
 function caculateAreaTriangle(){
     // get triangle base value
-    const baseField = document.getElementById('triangle-b');
-    const baseValueString = baseField.value;
-    const baseValue = parseFloat(baseValueString);
+    const baseValue = getInputValueById('triangle-b')
 
     // get triangle height value
-    const heightField = document.getElementById('triangle-h');
-    const heightValueString = heightField.value;
-    const heightValue = parseFloat(heightValueString);
+    const heightValue = getInputValueById('triangle-h');
 
     // calculate triangle area
     const area = 0.5 * baseValue * heightValue;
-    console.log(area);
 
     // display the area
-    const displayArea = document.getElementById('triangle-area');
-    displayArea.innerText = area;
+    displayInputResult('triangle-area', area);
 }
 
 function caculateAreaRectangle(){
     // get rectangle width
-    const widthField = document.getElementById('rectangle-w');
-    const widthValueString = widthField.value;
-    const widthValue = parseFloat(widthValueString);
+    const widthValue = getInputValueById('rectangle-w');
 
     // get rectangle length
-    const lengthField = document.getElementById('rectangle-l');
-    const lengthValueString = lengthField.value;
-    const lengthValue = parseFloat(lengthValueString); 
+    const lengthValue = getInputValueById('rectangle-l'); 
 
     // calculate area
     const area = widthValue * lengthValue;
 
     // display area
-    const displayArea = document.getElementById('rectangle-area');
-    displayArea.innerText = area;
+    displayInputResult('rectangle-area', area);
+}
+
+function caculateAreaParallelogram(){
+    const baseValue = getInputValueById('parallelogram-b');
+
+    const heightValue = getInputValueById('parallelogram-h');
+
+    const area = baseValue * heightValue;
+
+    displayInputResult('parallelogram-area', area);
+
 }
