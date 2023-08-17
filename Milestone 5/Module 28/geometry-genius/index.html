@@ -16,7 +16,7 @@
         <div class="flex flex-col lg:flex-row">
             <!-- Shape Container -->
             <div class="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- First Card -->
+                <!-- Triangle Card -->
                 <div class="card bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                       <img src="./images/triangle.png" alt="Shoes" class="rounded-xl" />
@@ -36,7 +36,7 @@
                       </div>
                     </div>
                   </div>
-                <!-- Second Card -->
+                <!-- Rectangle Card -->
                 <div class="card bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                       <img src="./images/rectangle.png" alt="Shoes" class="rounded-xl" />
@@ -56,7 +56,7 @@
                       </div>
                     </div>
                   </div>
-                <!-- Third Card -->
+                <!-- Parallelogram Card -->
                 <div class="card bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
                       <img src="./images/parallelogram.png" alt="Shoes" class="rounded-xl" />
@@ -73,6 +73,66 @@
                       <p class="my-2 text-xl"> Area: <span class="font-bold" id="parallelogram-area"></span> cm<sup>2</sup></p>
                       <div class="card-actions">
                         <button onclick="caculateAreaParallelogram()" class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Rhombus Card -->
+                <div class="card bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/rhombus.png" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title">Rhombus</h2>
+                      <p>Area (A) = 0.5 x d1 x d2</p>
+                      <p>
+                        <input type="text" placeholder="d1" class="border bg-[#F1F1F1] w-20 px-1 text-xl" id="rhombus-d1">
+                        <span class="ml-2">cm</span>
+                        <input type="text" placeholder="d2" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl" id="rhombus-d2">
+                        <span class="ml-2">cm</span>
+                      </p>
+                      <p class="my-2 text-xl"> Area: <span class="font-bold" id="rhombus-area"></span> cm<sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="caculateAreaRhombus()" class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Pentagon Card -->
+                <div class="card bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/pentagon.png" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title">Pentagon</h2>
+                      <p>Area (A) = 0.5 x p x b</p>
+                      <p>
+                        <input type="text" placeholder="p" class="border bg-[#F1F1F1] w-20 px-1 text-xl" id="pentagon-p">
+                        <span class="ml-2">cm</span>
+                        <input type="text" placeholder="b" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl" id="pentagon-b">
+                        <span class="ml-2">cm</span>
+                      </p>
+                      <p class="my-2 text-xl"> Area: <span class="font-bold" id="pentagon-area"></span> cm<sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="caculateAreaPentagon()" class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
+                      </div>
+                    </div>
+                  </div>
+                <!-- Ellipse Card -->
+                <div class="card bg-base-100 shadow-xl">
+                    <figure class="px-10 pt-10">
+                      <img src="./images/ellipse.png" alt="Shoes" class="rounded-xl" />
+                    </figure>
+                    <div class="card-body items-center text-center">
+                      <h2 class="card-title">Ellipse</h2>
+                      <p>Area (A) = pi x a x b</p>
+                      <p>
+                        <input type="text" placeholder="a" class="border bg-[#F1F1F1] w-20 px-1 text-xl" id="ellipse-a">
+                        <span class="ml-2">cm</span>
+                        <input type="text" placeholder="b" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl" id="ellipse-b">
+                        <span class="ml-2">cm</span>
+                      </p>
+                      <p class="my-2 text-xl"> Area: <span class="font-bold" id="ellipse-area"></span> cm<sup>2</sup></p>
+                      <div class="card-actions">
+                        <button onclick="caculateAreaEllipse()" class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
                       </div>
                     </div>
                   </div>
