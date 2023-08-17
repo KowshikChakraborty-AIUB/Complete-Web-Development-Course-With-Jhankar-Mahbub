@@ -12,6 +12,20 @@ function displayInputResult(displayResultId, area){
     displayResult.innerText = area; //no need to return this, we'll just display text.
 }
 
+// function inputDataValidation(input1, input2){
+//     if(isNaN(input1) || isNaN(input2)){
+//         alert('ফাইজলামি বন্ধ কইরা চুপচাপ ভদ্র মানুষের মতো নাম্বার দে 😡😡');
+//         return input1, input2;
+//     }
+// }
+
+/**
+ * Three ways of Data Validation:
+ * 1. set the proper type of the input field (number, text, email)
+ * 2. check typeOf() (string, number, array)
+ * 3. check isNaN() (not a number)
+ */
+
 // Area Calculations
 
 function caculateAreaTriangle(){
@@ -20,6 +34,12 @@ function caculateAreaTriangle(){
 
     // get triangle height value
     const heightValue = getInputValueById('triangle-h');
+
+    // validation
+    if(isNaN(baseValue) || isNaN(heightValue)){
+        alert('ফাইজলামি বন্ধ কইরা চুপচাপ ভদ্র মানুষের মতো নাম্বার দে 😡😡');
+        return;
+    }
 
     // calculate triangle area
     const area = (0.5 * baseValue * heightValue).toFixed(2);
@@ -35,6 +55,12 @@ function caculateAreaRectangle(){
     // get rectangle length
     const lengthValue = getInputValueById('rectangle-l'); 
 
+    // validation
+    if(isNaN(widthValue) || isNaN(lengthValue)){
+        alert('ফাইজলামি বন্ধ কইরা চুপচাপ ভদ্র মানুষের মতো নাম্বার দে 😡😡');
+        return;
+    }
+
     // calculate area
     const area = (widthValue * lengthValue).toFixed(2);
 
@@ -47,6 +73,11 @@ function caculateAreaParallelogram(){
 
     const heightValue = getInputValueById('parallelogram-h');
 
+    if(isNaN(baseValue) || isNaN(heightValue)){
+        alert('ফাইজলামি বন্ধ কইরা চুপচাপ ভদ্র মানুষের মতো নাম্বার দে 😡😡');
+        return;
+    }
+
     const area = (baseValue * heightValue).toFixed(2);
 
     displayInputResult('parallelogram-area', area);
@@ -58,6 +89,11 @@ function caculateAreaRhombus(){
 
     const d2value = getInputValueById('rhombus-d2');
 
+    if(isNaN(d1value) || isNaN(d2value)){
+        alert('ফাইজলামি বন্ধ কইরা চুপচাপ ভদ্র মানুষের মতো নাম্বার দে 😡😡');
+        return;
+    }
+
     const area = (0.5 * d1value * d2value).toFixed(2);
 
     displayInputResult('rhombus-area', area);
@@ -67,6 +103,11 @@ function caculateAreaPentagon(){
 
     const bValue = getInputValueById('pentagon-b');
 
+    if(isNaN(pValue) || isNaN(bValue)){
+        alert('ফাইজলামি বন্ধ কইরা চুপচাপ ভদ্র মানুষের মতো নাম্বার দে 😡😡');
+        return;
+    }
+
     const area = (0.5 * pValue * bValue).toFixed(2);
 
     displayInputResult('pentagon-area', area);
@@ -75,6 +116,11 @@ function caculateAreaEllipse(){
     const aValue = getInputValueById('ellipse-a');
 
     const bValue = getInputValueById('ellipse-b');
+
+    if(isNaN(aValue) || isNaN(bValue)){
+        alert('ফাইজলামি বন্ধ কইরা চুপচাপ ভদ্র মানুষের মতো নাম্বার দে 😡😡');
+        return;
+    }
 
     const area = (3.1416 * aValue * bValue).toFixed(2);
 
