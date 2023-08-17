@@ -30,6 +30,7 @@
                         <input type="text" placeholder="h" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl" id="triangle-h">
                         <span class="ml-2">cm</span>
                       </p>
+                      <p class="my-2 text-xl"> Area: <span class="font-bold" id="triangle-area"></span> cm<sup>2</sup></p>
                       <div class="card-actions">
                         <button onclick="caculateAreaTriangle()" class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
                       </div>
@@ -38,19 +39,20 @@
                 <!-- Second Card -->
                 <div class="card bg-base-100 shadow-xl">
                     <figure class="px-10 pt-10">
-                      <img src="./images/triangle.png" alt="Shoes" class="rounded-xl" />
+                      <img src="./images/rectangle.png" alt="Shoes" class="rounded-xl" />
                     </figure>
                     <div class="card-body items-center text-center">
-                      <h2 class="card-title">Triangle</h2>
-                      <p>Area (A) = 0.5 x b x h</p>
+                      <h2 class="card-title">Rectangle</h2>
+                      <p>Area (A) = w x l</p>
                       <p>
-                        <input type="text" placeholder="b" class="border bg-[#F1F1F1] w-20 px-1 text-xl">
+                        <input type="text" placeholder="w" class="border bg-[#F1F1F1] w-20 px-1 text-xl" id="rectangle-w">
                         <span class="ml-2">cm</span>
-                        <input type="text" placeholder="h" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl">
+                        <input type="text" placeholder="l" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl" id="rectangle-l">
                         <span class="ml-2">cm</span>
                       </p>
+                      <p class="my-2 text-xl"> Area: <span class="font-bold" id="rectangle-area"></span> cm<sup>2</sup></p>
                       <div class="card-actions">
-                        <button class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
+                        <button onclick="caculateAreaRectangle()" class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
                       </div>
                     </div>
                   </div>
@@ -68,6 +70,7 @@
                         <input type="text" placeholder="h" class="ml-1 border bg-[#F1F1F1] w-20 px-1 text-xl">
                         <span class="ml-2">cm</span>
                       </p>
+                      <p class="my-2 text-xl"> Area: <span class="font-bold" id="triangle-area"></span> cm<sup>2</sup></p>
                       <div class="card-actions">
                         <button class="btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded px-24 py-4">Calculate</button>
                       </div>
