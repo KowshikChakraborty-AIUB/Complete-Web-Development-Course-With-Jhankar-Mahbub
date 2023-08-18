@@ -12,6 +12,29 @@ function displayInputResult(displayResultId, area){
     displayResult.innerText = area; //no need to return this, we'll just display text.
 }
 
+function areaCalculator(shapeType, area){
+    const areaCalculator = document.getElementById('area-calculator');
+    const childCount = areaCalculator.childElementCount;
+    const p = document.createElement('p');
+    p.classList.add('my-2')
+    p.innerHTML = `<b>${childCount + 1}. ${shapeType} 
+    <span id = 'area-convert'>${area}</span> 
+    <span id ='unit-convert'>cm<sup>2</sup></span></b> 
+    <button id = "convert-meterSquared" class='btn hover:bg-[#1067d8] bg-[#1090D8] text-white rounded normal-case ml-2'> Convert to m<sup>2</sup> </button>`;
+    areaCalculator.appendChild(p);
+
+    document.getElementById('convert-meterSquared').addEventListener('click', function(){
+        const unitConvert = document.getElementById('unit-convert');
+        const areaToConvert = document.getElementById('area-convert');
+        const areaToConvertValue = parseFloat(areaToConvert.innerText);
+        const convertedArea = areaToConvertValue/100;
+        areaToConvert.innerText = convertedArea;
+        unitConvert.innerHTML = `
+            m<sup>2</sup>
+        ` 
+    })
+}
+
 // function inputDataValidation(input1, input2){
 //     if(isNaN(input1) || isNaN(input2)){
 //         alert('ফাইজলামি বন্ধ কইরা চুপচাপ ভদ্র মানুষের মতো নাম্বার দে 😡😡');
@@ -46,6 +69,9 @@ function caculateAreaTriangle(){
 
     // display the area
     displayInputResult('triangle-area', area);
+
+    // display in Area Calculator Field
+    areaCalculator('Triangle', area);
 }
 
 function caculateAreaRectangle(){
@@ -66,6 +92,9 @@ function caculateAreaRectangle(){
 
     // display area
     displayInputResult('rectangle-area', area);
+
+    // display in Area Calculator Field
+    areaCalculator('Rectangle', area);
 }
 
 function caculateAreaParallelogram(){
@@ -82,6 +111,8 @@ function caculateAreaParallelogram(){
 
     displayInputResult('parallelogram-area', area);
 
+    areaCalculator('Parallelogram', area);
+
 }
 
 function caculateAreaRhombus(){
@@ -97,6 +128,8 @@ function caculateAreaRhombus(){
     const area = (0.5 * d1value * d2value).toFixed(2);
 
     displayInputResult('rhombus-area', area);
+
+    areaCalculator('Rhombus', area);
 }
 function caculateAreaPentagon(){
     const pValue = getInputValueById('pentagon-p');
@@ -111,6 +144,8 @@ function caculateAreaPentagon(){
     const area = (0.5 * pValue * bValue).toFixed(2);
 
     displayInputResult('pentagon-area', area);
+
+    areaCalculator('Pentagon', area);
 }
 function caculateAreaEllipse(){
     const aValue = getInputValueById('ellipse-a');
@@ -125,4 +160,6 @@ function caculateAreaEllipse(){
     const area = (3.1416 * aValue * bValue).toFixed(2);
 
     displayInputResult('ellipse-area', area);
+
+    areaCalculator('Ellipse', area);
 }
