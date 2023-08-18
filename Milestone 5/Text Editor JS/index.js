@@ -13,14 +13,31 @@ document.getElementById('make-underline').addEventListener('click', function () 
 // Text Align (Left, Center, Right, Justify)
 
 document.getElementById('make-left').addEventListener('click', function () {
-    getInputElementByIdLeft('text-area');
+    getInputElementByIdTextAlign('text-area', 'left');
 })
 document.getElementById('make-center').addEventListener('click', function () {
-    getInputElementByIdCenter('text-area');
+    getInputElementByIdTextAlign('text-area', 'center');
 })
 document.getElementById('make-right').addEventListener('click', function () {
-    getInputElementByIdRight('text-area');
+    getInputElementByIdTextAlign('text-area', 'right');
 })
 document.getElementById('make-justify').addEventListener('click', function () {
-    getInputElementByIdJustify('text-area');
+    getInputElementByIdTextAlign('text-area', 'justify');
+})
+
+// Text Font Size
+
+document.getElementById('font-size').addEventListener('input', function(){
+    getInputElementByIdFontSize('text-area');
+})
+
+// Text uppercase, lowercase
+
+document.getElementById('text-case').addEventListener('click', function(){
+    getElementByIdTextCase('text-area');
+})
+
+// Text color change
+document.getElementById('text-color').addEventListener('input', function(){
+    getElementByIdTextColor('text-area');
 })
