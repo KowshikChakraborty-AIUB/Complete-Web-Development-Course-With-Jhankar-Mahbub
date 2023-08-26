@@ -12,6 +12,24 @@ function loadUsers(){
       .then(json => displayUsers(json))
 }
 
+
+function loadUsers2(){
+    const url = 'https://jsonplaceholder.typicode.com/users';
+    fetch(url)
+      .then(response => response.json())
+      .then(json => displayUsers2(json))
+}
+
 function displayUsers(data){
     console.log(data);
+}
+
+function displayUsers2(data){
+    const ul = document.getElementById('users-list');
+
+    for(user of data){
+        const li = document.createElement('li');
+        li.innerText = user.name;
+        ul.appendChild(li);
+    }
 }
