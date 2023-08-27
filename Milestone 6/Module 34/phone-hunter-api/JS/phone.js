@@ -1,11 +1,11 @@
-const loadPhone = async (searchFieldvalue) => {
+const loadPhone = async (searchFieldvalue, isShowAll) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchFieldvalue}`);
     const phoneData = await res.json();
-    displayPhone(phoneData.data)
+    displayPhone(phoneData.data, isShowAll)
 }
 
 
-const displayPhone = phoneData => {
+const displayPhone = (phoneData, isShowAll) => {
     const phoneListContainer = document.getElementById('phone-list-container');
 
     // show new search results and remove previous search results.
@@ -13,27 +13,28 @@ const displayPhone = phoneData => {
 
     // display show all button if there are more than 6 phones.
     const showAllContainer = document.getElementById('show-all-container');
-    if(phoneData.length > 6){
+    if(phoneData.length > 6 && !(isShowAll)){
         showAllContainer.classList.remove('hidden');
     }else{
         showAllContainer.classList.add('hidden');
     }
-
-    // display only first 6 phones.
-    phoneData = phoneData.slice(0,6); 
+    // display only first 6 phones if not show all.
+    if(!(isShowAll)){
+        phoneData = phoneData.slice(0,6); 
+    }
 
     phoneData.forEach(phone => {
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card bg-base-100 shadow-xl`;
         phoneCard.innerHTML = `
         <figure class="px-10 pt-10">
-            <img src="${phone.image}" alt="Shoes" class="rounded-xl" />
+            <img src="${phone.image}" alt="" class="rounded-xl" />
         </figure>
         <div class="card-body items-center text-center">
             <h2 class="card-title">${phone.phone_name}</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <p>Hello</p>
             <div class="card-actions">
-                <button class="btn btn-primary">Buy Now</button>
+                <button class="btn btn-primary">Details</button>
             </div>
         </div>
         
@@ -45,12 +46,12 @@ const displayPhone = phoneData => {
     loadPage(false);
 }
 
-const handleSearch = () => {
+const handleSearch = (isShowAll) => {
     // start the loading spinner.
     loadPage(true);
     const searchField = document.getElementById('search-field');
     const searchFieldvalue = searchField.value;
-    loadPhone(searchFieldvalue);
+    loadPhone(searchFieldvalue, isShowAll);
 }
 
 const loadPage = (isLoading) => {
@@ -61,4 +62,12 @@ const loadPage = (isLoading) => {
     }else{
         loadSpinner.classList.add('hidden');
     }
+}
+
+
+
+// handle show all button (not recommended to implement like this. Not the best way!!)
+
+const showAll = () => {
+    handleSearch(true);
 }
