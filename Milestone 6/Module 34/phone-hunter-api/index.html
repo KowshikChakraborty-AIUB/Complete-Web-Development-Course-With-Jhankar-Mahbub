@@ -19,7 +19,8 @@
     </header>
     <main class="mt-8">
         <section class="flex justify-center gap-4">
-            <input id="search-field" type="text" placeholder="Search here..." class="input input-bordered w-full max-w-xs" />
+            <input id="search-field" type="text" placeholder="Search here..."
+                class="input input-bordered w-full max-w-xs" />
             <button onclick="handleSearch()" class="btn btn-primary">Search</button>
         </section>
 
@@ -30,12 +31,28 @@
                 <span class="loading loading-spinner text-warning"></span>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8" id="phone-list-container">
-                
+
             </div>
             <!-- Show all container -->
             <div id="show-all-container" class="text-center hidden my-8">
-                <button  onclick="showAll()" class="btn btn-primary">Show All</button>
+                <button onclick="showAll()" class="btn btn-primary">Show All</button>
             </div>
+        </section>
+
+        <!-- Phone Details Modal -->
+        <section>
+            <!-- Open the modal using ID.showModal() method -->
+            <button class="btn" onclick="phone_details_modal.showModal()">open modal</button>
+            <dialog id="phone_details_modal" class="modal modal-bottom sm:modal-middle">
+                <form method="dialog" class="modal-box">
+                    <h3 class="font-bold text-lg">Hello!</h3>
+                    <p class="py-4">Press ESC key or click the button below to close</p>
+                    <div class="modal-action">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </div>
+                </form>
+            </dialog>
         </section>
     </main>
     <script src="./JS/phone.js"></script>
