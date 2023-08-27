@@ -10,7 +10,18 @@ const displayPhone = phoneData => {
 
     // show new search results and remove previous search results.
     phoneListContainer.textContent = '';
-    
+
+    // display show all button if there are more than 6 phones.
+    const showAllContainer = document.getElementById('show-all-container');
+    if(phoneData.length > 6){
+        showAllContainer.classList.remove('hidden');
+    }else{
+        showAllContainer.classList.add('hidden');
+    }
+
+    // display only first 6 phones.
+    phoneData = phoneData.slice(0,6); 
+
     phoneData.forEach(phone => {
         const phoneCard = document.createElement('div');
         phoneCard.classList = `card bg-base-100 shadow-xl`;
