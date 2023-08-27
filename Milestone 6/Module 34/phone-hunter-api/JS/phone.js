@@ -40,10 +40,25 @@ const displayPhone = phoneData => {
         `
         phoneListContainer.appendChild(phoneCard);
     })
+
+    // stop the loading spinner now.
+    loadPage(false);
 }
 
 const handleSearch = () => {
+    // start the loading spinner.
+    loadPage(true);
     const searchField = document.getElementById('search-field');
     const searchFieldvalue = searchField.value;
     loadPhone(searchFieldvalue);
+}
+
+const loadPage = (isLoading) => {
+    const loadSpinner = document.getElementById('loading');
+
+    if(isLoading){
+        loadSpinner.classList.remove('hidden');
+    }else{
+        loadSpinner.classList.add('hidden');
+    }
 }
