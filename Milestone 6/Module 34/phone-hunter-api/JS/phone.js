@@ -52,7 +52,30 @@ const handleShowDetails = async (phoneId) => {
     // load single phone data
     const res = await fetch(`https://openapi.programming-hero.com/api/phone/${phoneId}`);
     const phoneDetails = await res.json();
-    console.log(phoneDetails.data);
+    displayPhoneDetails(phoneDetails.data);
+}
+
+// display phone show details
+const displayPhoneDetails = (phoneDetails) => {
+    console.log(phoneDetails);
+    const phoneName = document.getElementById('show-phone-details-name');
+    phoneName.innerText = phoneDetails.name;
+    
+    const  phoneDetailsContainer = document.getElementById('phone-details-container');
+
+    phoneDetailsContainer.innerHTML = `
+    <img class = "mx-auto mt-4" src="${phoneDetails?.image}"></img>
+    <p class="py-4">Brand: ${phoneDetails?.brand} </p>
+    <p class="py-4">Display: ${phoneDetails?.mainFeatures?.displaySize} </p>
+    <p class="py-4">Storage: ${phoneDetails?.mainFeatures?.storage} </p>
+    <p class="py-4">Memory: ${phoneDetails?.mainFeatures?.memory} </p>
+    <p class="py-4">Release Date: ${phoneDetails?.releaseDate} </p>
+    
+    
+    `
+
+    // show the modal
+    phone_details_modal.showModal()
 }
 
 const handleSearch = (isShowAll) => {
