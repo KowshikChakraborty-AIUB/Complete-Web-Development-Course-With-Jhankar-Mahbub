@@ -15,7 +15,7 @@ const Country = ({country, handleVisitedCountries}) => {
             <img src={flags?.png} alt="" />
             <p>Area: {area} km<sup>2</sup></p>
             <p>Population: {population}</p>
-            <button onClick={handleVisitedCountries}>Mark as Visited</button>
+            <button onClick={()=>handleVisitedCountries(country)}>Mark as Visited</button>
             <button onClick={handleVisited}>{visited?'Visited':'Going'}</button>
             {
                 visited?'I visited this counrty':'I want to visit this country!'

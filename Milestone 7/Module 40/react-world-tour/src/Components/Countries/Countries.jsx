@@ -13,16 +13,28 @@ const Countries = () => {
             .then(data => setCountries(data))
     }, [])
 
-    const handleVisitedCountries = () => {
-        console.log('clicked!');
+    const handleVisitedCountries = (counrty) => {
+        const newvisitedCountries = [...visitedCountries, counrty];
+        setVisitedCountries(newvisitedCountries);
+        
     }
 
     return (
         <div>
             <h3>Total Number of Countries: {countries.length}</h3>
+            <div>
+                <h3>Visited Countries: {visitedCountries.length}</h3>
+                <ul>
+                    {
+                        visitedCountries.map(visitedCountry => {
+                            return <li key={visitedCountry.cca3}>{visitedCountry.name.common}</li>
+                        })
+                    }
+                </ul>
+            </div>
             <div className="country-container">
                 {
-                    countries.map(country => <Country key={country.cca3} country={country} handleVisitedCountries = {handleVisitedCountries}></Country>)
+                    countries.map(country => <Country key={country.cca3} country={country} handleVisitedCountries={handleVisitedCountries}></Country>)
                 }
             </div>
         </div>
