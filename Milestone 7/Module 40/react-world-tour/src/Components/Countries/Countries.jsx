@@ -27,7 +27,7 @@ const Countries = () => {
                 <ul>
                     {
                         visitedCountries.map(visitedCountry => {
-                            return <li key={visitedCountry.cca3}>{visitedCountry.name.common}</li>
+                            return <li key={visitedCountry.cca3}><img width={50} src={visitedCountry.flags.png} alt="" /> {visitedCountry.name.common}</li>
                         })
                     }
                 </ul>
