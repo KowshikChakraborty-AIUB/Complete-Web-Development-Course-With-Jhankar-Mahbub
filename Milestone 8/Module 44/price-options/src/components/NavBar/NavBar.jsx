@@ -23,7 +23,11 @@ const NavBar = () => {
                         : <BiMenu></BiMenu>
                 }
             </div>
-            <ul className="hidden md:flex gap-6">
+            <ul className={`md:flex bg-black md:bg-white text-white md:text-black gap-6 absolute md:static duration-1000 ${
+
+                open ? 'top-16' : '-top-60'
+
+            }`}>
                 {
                     routes.map(route => <Link key={route.id} route={route}></Link>)
                 }
