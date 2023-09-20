@@ -18,12 +18,11 @@ function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
       {/* <SimpleForm></SimpleForm> */}
       {/* <StatefulForm></StatefulForm> */}
       {/* <RefForm></RefForm> */}
       {/* <CustomHookForm></CustomHookForm> */}
-      <ReusableForm
+      {/* <ReusableForm
         //formTitle={'Sign UP'}
         handleSubmit={handleSingUpSubmit}>
         <div>
@@ -39,7 +38,7 @@ function App() {
           <h2>Update Profile</h2>
           <p>Always keep your profile updated</p>
         </div>
-      </ReusableForm>
+      </ReusableForm> */}
 
       <Grandpa></Grandpa>
 
