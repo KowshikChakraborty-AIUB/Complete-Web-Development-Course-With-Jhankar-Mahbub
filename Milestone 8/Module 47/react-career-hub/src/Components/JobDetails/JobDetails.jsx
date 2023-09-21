@@ -9,8 +9,8 @@ const JobDetails = () => {
 
     //console.log();
 
-    const handleApplyNow = ()=>{
-        savedJobApplication(id);
+    const handleApplyNow = () => {
+        savedJobApplication(parseInt(id));
         toast('You have applied successfully!');
     }
 
