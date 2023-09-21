@@ -11,6 +11,10 @@ const Job = ({ job }) => {
                     <button className='px-5 py-2 mr-4 font-extrabold border rounded border-[#7E90FE] text-[#7E90FE]'>{remote_or_onsite}</button>
                     <button className='px-5 py-2 font-extrabold border rounded border-[#7E90FE] text-[#7E90FE]'>{job_type}</button>
                 </div>
+                <div className='flex gap-6'>
+                    <h5 className='flex'><img className='mr-2' src="src/assets/icons/Location.png" alt="" /> {location}</h5>
+                    <h5 className='flex'><img className='mr-2' src="src/assets/icons/money.png" alt="" /> {salary}</h5>
+                </div>
                 <div className="card-actions">
                     <button className="btn btn-primary">View Details</button>
                 </div>
