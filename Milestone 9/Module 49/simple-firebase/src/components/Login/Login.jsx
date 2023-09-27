@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import app from "../../firebase/firebase.init";
 import { useState } from "react";
 
@@ -6,10 +6,11 @@ const Login = () => {
     const [user, setUser] = useState(null);
 
     const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
 
     const handleGoogleSignIn = () => {
-        signInWithPopup(auth, provider)
+        signInWithPopup(auth, googleProvider)
             .then(result => {
                 const loggedInUser = result.user;
                 setUser(loggedInUser);
@@ -19,7 +20,7 @@ const Login = () => {
             })
     }
 
-    const handleGoogleSignOut = () => {
+    const handleSignOut = () => {
         signOut(auth)
             .then(result => {
                 console.log(result);
@@ -30,13 +31,28 @@ const Login = () => {
             })
     }
 
+    const handleGitHubSignIn = () => {
+        signInWithPopup(auth, gitHubProvider)
+        .then(result => {
+            const loggedInUser = result.user;
+            setUser(loggedInUser);
+            console.log(loggedInUser);
+        })
+        .catch(error => {
+            console.log('error:', error.message);
+        })
+    }
+
 
     return (
         <div>
             {
                 user ?
-                    <button onClick={handleGoogleSignOut}>Sign Out</button> :
-                    <button onClick={handleGoogleSignIn}>Google Login</button>
+                    <button onClick={handleSignOut}>Sign Out</button> :
+                    <div>
+                        <button onClick={handleGoogleSignIn}>Google Login</button>
+                        <button onClick={handleGitHubSignIn}>GitHub Login</button>
+                    </div>
             }
             {
                 user &&
