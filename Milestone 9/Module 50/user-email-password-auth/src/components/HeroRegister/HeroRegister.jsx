@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
 import { useState } from "react";
 import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa';
+import { Link } from "react-router-dom";
 
 const HeroRegister = () => {
     const [registerError, setRegisterError] = useState('');
@@ -22,7 +23,7 @@ const HeroRegister = () => {
             setRegisterError('Your Password should have at least one upper character');
             return;
         }
-        else if(!accepted){
+        else if (!accepted) {
             setRegisterError('Please accept our terms and conditions!');
             return;
         }
@@ -89,6 +90,7 @@ const HeroRegister = () => {
                             {
                                 success && <p className="text-sm text-green-600 font-bold">{success}</p>
                             }
+                            <p>Already have an account? Please <Link className="font-bold" to={'/login'}>Login</Link></p>
                         </div>
                     </div>
                 </div>

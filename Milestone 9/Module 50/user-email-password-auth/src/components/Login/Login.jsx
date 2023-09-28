@@ -1,7 +1,14 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { sendPasswordResetEmail, signInWithEmailAndPassword } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
+import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa';
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
+    const [registerError, setRegisterError] = useState('');
+    const [success, setSuccess] = useState('');
+    const [showPassWord, setShowPassWord] = useState(false);
+    const emailRef = useRef(null);
 
     const handleLongin = (e) => {
         e.preventDefault();
@@ -9,8 +16,32 @@ const Login = () => {
         const password = e.target.password.value;
         console.log(email, password);
 
+        //reset error
+        setRegisterError('');
+        setSuccess('');
+
         signInWithEmailAndPassword(auth, email, password)
-        .then(userCredentials => console.log(userCredentials.user))
+            .then(userCredentials => {
+                console.log(userCredentials.user);
+                setSuccess('User logged in Successfully!');
+            })
+            .catch(error => {
+                setRegisterError(error.message);
+            })
+    }
+
+    const handleForgetPassWord = () => {
+        const email = emailRef.current.value;
+        if(!email){
+            console.log('Please write your email id', email);
+            return;
+        }
+
+        //send password reset email
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+            console.log('please check your email');
+        })
         .catch(error => {
             console.log(error.message);
         })
@@ -30,21 +61,37 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                                <input type="email" ref={emailRef} name="email" placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                                <div className="flex">
+                                    <input type={showPassWord ? 'text' : "password"} name="password" placeholder="password" className="input input-bordered w-full" required />
+                                    <span className="flex items-center w-1/12 hover:cursor-pointer" onClick={() => setShowPassWord(!showPassWord)}>
+
+                                        {
+                                            showPassWord ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>
+                                        }
+
+                                    </span>
+                                </div>
                                 <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                    <a onClick={handleForgetPassWord} href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
                             </div>
                         </form>
+                        {
+                            registerError && <p className="text-sm text-red-600 font-bold">{registerError}</p>
+                        }
+                        {
+                            success && <p className="text-sm text-green-600 font-bold">{success}</p>
+                        }
+                        <p>New to this website? Please <Link className="font-bold" to={'/heroRegister'}>Register</Link></p>
                     </div>
                 </div>
             </div>
