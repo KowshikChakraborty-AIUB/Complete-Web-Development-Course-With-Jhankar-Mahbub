@@ -1,7 +1,10 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
+import { useState } from "react";
 
 const HeroRegister = () => {
+    const [registerError, setRegisterError] = useState('');
+    const [success, setSuccess] = useState('');
 
     const handleRegister = e => {
         e.preventDefault();
@@ -9,12 +12,16 @@ const HeroRegister = () => {
         const password = e.target.password.value;
         console.log(email, password);
 
+        setRegisterError('');
+        setSuccess('');
+
         createUserWithEmailAndPassword(auth, email, password)
         .then(userCredentials => {
             console.log(userCredentials.user);
+            setSuccess('User Created Successfully!');
         })
         .catch(error => {
-            console.error(error);
+            setRegisterError(error.message);
         })
     }
 
@@ -34,13 +41,13 @@ const HeroRegister = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name="email" placeholder="email" className="input input-bordered" />
+                                    <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" name="password" placeholder="password" className="input input-bordered" />
+                                    <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>
@@ -49,6 +56,12 @@ const HeroRegister = () => {
                                     <button className="btn btn-primary">Register</button>
                                 </div>
                             </form>
+                            {
+                                registerError && <p className="text-sm text-red-600 font-bold">{registerError}</p>
+                            }
+                            {
+                                success && <p className="text-sm text-green-600 font-bold">{success}</p>
+                            }
                         </div>
                     </div>
                 </div>
