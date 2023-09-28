@@ -1,10 +1,12 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
 import { useState } from "react";
+import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa';
 
 const HeroRegister = () => {
     const [registerError, setRegisterError] = useState('');
     const [success, setSuccess] = useState('');
+    const [showPassWord, setShowPassWord] = useState(false);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -15,14 +17,19 @@ const HeroRegister = () => {
         setRegisterError('');
         setSuccess('');
 
+        if (!/[A-Z]/.test(password)) {
+            setRegisterError('Your Password should have at least one upper character');
+            return;
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
-        .then(userCredentials => {
-            console.log(userCredentials.user);
-            setSuccess('User Created Successfully!');
-        })
-        .catch(error => {
-            setRegisterError(error.message);
-        })
+            .then(userCredentials => {
+                console.log(userCredentials.user);
+                setSuccess('User Created Successfully!');
+            })
+            .catch(error => {
+                setRegisterError(error.message);
+            })
     }
 
 
@@ -47,7 +54,18 @@ const HeroRegister = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+
+                                    <div className="flex">
+                                        <input type={showPassWord ? 'text' : "password"} name="password" placeholder="password" className="input input-bordered w-full" required />
+                                        <span className="flex items-center w-1/12 hover:cursor-pointer" onClick={() => setShowPassWord(!showPassWord)}>
+                                            
+                                            {
+                                                showPassWord?<FaRegEyeSlash></FaRegEyeSlash>:<FaRegEye></FaRegEye>
+                                            }
+                                        
+                                        </span>
+                                    </div>
+
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>
