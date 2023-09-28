@@ -12,6 +12,7 @@ const HeroRegister = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const accepted = e.target.terms.checked;
         console.log(email, password);
 
         setRegisterError('');
@@ -19,6 +20,10 @@ const HeroRegister = () => {
 
         if (!/[A-Z]/.test(password)) {
             setRegisterError('Your Password should have at least one upper character');
+            return;
+        }
+        else if(!accepted){
+            setRegisterError('Please accept our terms and conditions!');
             return;
         }
 
@@ -58,17 +63,21 @@ const HeroRegister = () => {
                                     <div className="flex">
                                         <input type={showPassWord ? 'text' : "password"} name="password" placeholder="password" className="input input-bordered w-full" required />
                                         <span className="flex items-center w-1/12 hover:cursor-pointer" onClick={() => setShowPassWord(!showPassWord)}>
-                                            
+
                                             {
-                                                showPassWord?<FaRegEyeSlash></FaRegEyeSlash>:<FaRegEye></FaRegEye>
+                                                showPassWord ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>
                                             }
-                                        
+
                                         </span>
                                     </div>
 
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>
+                                </div>
+                                <div className="flex">
+                                    <input type="checkbox" name="terms" id="" />
+                                    <p className="ml-2">Accept our <a href="" className="font-bold">terms and conditions</a></p>
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Register</button>
