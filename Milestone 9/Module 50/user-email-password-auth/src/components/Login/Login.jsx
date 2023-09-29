@@ -23,7 +23,11 @@ const Login = () => {
         signInWithEmailAndPassword(auth, email, password)
             .then(userCredentials => {
                 console.log(userCredentials.user);
-                setSuccess('User logged in Successfully!');
+                if (userCredentials.user.emailVerified) {
+                    setSuccess('User logged in Successfully!');
+                }else{
+                    alert('Please varify your email first');
+                }
             })
             .catch(error => {
                 setRegisterError(error.message);
@@ -32,19 +36,19 @@ const Login = () => {
 
     const handleForgetPassWord = () => {
         const email = emailRef.current.value;
-        if(!email){
+        if (!email) {
             console.log('Please write your email id', email);
             return;
         }
 
         //send password reset email
         sendPasswordResetEmail(auth, email)
-        .then(() => {
-            console.log('please check your email');
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
+            .then(() => {
+                console.log('please check your email');
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
     return (

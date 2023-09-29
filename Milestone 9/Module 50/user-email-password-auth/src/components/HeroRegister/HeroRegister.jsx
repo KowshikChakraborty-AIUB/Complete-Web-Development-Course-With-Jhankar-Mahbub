@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "firebase/auth";
 import auth from "../../Firebase/firebase.config";
 import { useState } from "react";
 import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa';
@@ -11,10 +11,11 @@ const HeroRegister = () => {
 
     const handleRegister = e => {
         e.preventDefault();
+        const UserName = e.target.userName.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
         const accepted = e.target.terms.checked;
-        console.log(email, password);
+        console.log(UserName, email, password);
 
         setRegisterError('');
         setSuccess('');
@@ -32,6 +33,20 @@ const HeroRegister = () => {
             .then(userCredentials => {
                 console.log(userCredentials.user);
                 setSuccess('User Created Successfully!');
+
+                //upadte profile
+                updateProfile(userCredentials.user, {
+                    displayName: UserName
+                })
+                .then(() => {
+                    alert('Profile Updated Successfully!');
+                })
+
+                //send verification email
+                sendEmailVerification(userCredentials.user)
+                .then(() => {
+                    alert('Please check your email to verify');
+                })
             })
             .catch(error => {
                 setRegisterError(error.message);
@@ -50,6 +65,12 @@ const HeroRegister = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
                             <form onSubmit={handleRegister}>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text" name="userName" placeholder="User name..." className="input input-bordered" required />
+                                </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
