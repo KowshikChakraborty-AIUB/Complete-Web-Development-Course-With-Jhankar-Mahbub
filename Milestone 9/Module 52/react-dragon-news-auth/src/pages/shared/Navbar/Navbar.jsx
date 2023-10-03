@@ -14,6 +14,9 @@ const Navbar = () => {
             <NavLink to={'/career'}>
                 <li><a>Item 1</a></li>
             </NavLink>
+            <NavLink to={'/login'}>
+                <li><a>Login</a></li>
+            </NavLink>
 
         </>
 
@@ -41,7 +44,7 @@ const Navbar = () => {
                         <img src={userDefaultPic} />
                     </div>
                 </label>
-                <Link>
+                <Link to={'/login'}>
                     <button className="btn">Login</button>
                 </Link>
             </div>
