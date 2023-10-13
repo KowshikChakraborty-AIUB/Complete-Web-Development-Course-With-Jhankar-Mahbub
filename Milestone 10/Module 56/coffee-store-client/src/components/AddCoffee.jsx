@@ -28,10 +28,10 @@ const AddCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.insertedId > 0) {
+                if (data.insertedId) {
                     Swal.fire({
                         title: 'Coffee Added!',
-                        text: 'Do you want to continue',
+                        text: 'Do you want to continue?',
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
