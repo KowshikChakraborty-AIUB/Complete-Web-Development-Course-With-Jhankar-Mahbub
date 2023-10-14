@@ -56,12 +56,12 @@ async function run() {
       const updatedCoffee = req.body;
       const coffee = {
         $set: {
-          name:updatedCoffee.name, 
-          quantity:updatedCoffee.quantity, 
-          supplier:updatedCoffee.supplier, 
-          taste:updatedCoffee.taste, 
-          category:updatedCoffee.category, 
-          details: updatedCoffee.details, 
+          name: updatedCoffee.name,
+          quantity: updatedCoffee.quantity,
+          supplier: updatedCoffee.supplier,
+          taste: updatedCoffee.taste,
+          category: updatedCoffee.category,
+          details: updatedCoffee.details,
           photoURL: updatedCoffee.photoURL
         }
       }
@@ -79,7 +79,13 @@ async function run() {
 
     //user related api's
 
-    app.post('/user', async (req, res) => {
+    app.get('/users', async (req, res) => {
+      const cursor = userCollections.find();
+      const users = await cursor.toArray();
+      res.send(users);
+    })
+
+    app.post('/users', async (req, res) => {
       const user = req.body;
       console.log(user);
       const result = await userCollections.insertOne(user);
