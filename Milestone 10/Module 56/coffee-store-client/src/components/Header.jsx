@@ -6,6 +6,9 @@ const Header = () => {
             <NavLink to={'/'}>
                 Home
             </NavLink>
+            <NavLink to={'/signIn'}>
+                Sign In
+            </NavLink>
             <NavLink to={'/signUp'}>
                 Sign Up
             </NavLink>

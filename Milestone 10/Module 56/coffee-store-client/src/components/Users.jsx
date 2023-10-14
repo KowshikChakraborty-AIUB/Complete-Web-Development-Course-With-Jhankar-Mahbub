@@ -50,6 +50,7 @@ const Users = () => {
                             <th>ID</th>
                             <th>Email</th>
                             <th>Created At</th>
+                            <th>Last Logged At</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -61,6 +62,7 @@ const Users = () => {
                                     <th>{user._id}</th>
                                     <td>{user.email}</td>
                                     <td>{user.createdAt}</td>
+                                    <td>{user.lastLoggedAt}</td>
                                     <td>
                                         <button onClick={() => handleDelete(user._id)} className="btn bg-red-600 hover:bg-red-600">X</button>
                                     </td>

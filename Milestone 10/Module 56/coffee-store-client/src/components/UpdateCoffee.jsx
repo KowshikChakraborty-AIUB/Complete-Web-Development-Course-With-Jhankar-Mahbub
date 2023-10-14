@@ -34,14 +34,19 @@ const UpdateCoffee = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                if (data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: 'Coffee Updated!',
-                        text: 'Do you want to continue?',
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    })
-                }
+                // if (data.modifiedCount > 0) {
+                //     Swal.fire(
+                //         'Coffee Updated!',
+                //         'Your Coffee Info has been Updated Successfully',
+                //         'success'
+                //     )
+                // }
+
+                Swal.fire(
+                    'Coffee Updated!',
+                    'Your Coffee Info has been Updated Successfully',
+                    'success'
+                )
             })
     }
 
