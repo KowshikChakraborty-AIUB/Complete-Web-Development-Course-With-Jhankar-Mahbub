@@ -1,9 +1,23 @@
 import { Link } from "react-router-dom";
 import login from '../../assets/images/login/login.svg';
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
 
 const SignUp = () => {
 
-    const handleSignUp = () => {
+    const {createUser} = useContext(AuthContext);
+
+    const handleSignUp = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, email, password);
+
+        createUser(email, password)
+        .then(userCredentials => console.log(userCredentials.user))
+        .catch(error => console.log(error.message))
 
     }
 
@@ -20,7 +34,7 @@ const SignUp = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="email" name='name' placeholder="name" className="input input-bordered" required />
+                            <input type="text" name='name' placeholder="name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
