@@ -28,6 +28,7 @@ async function run() {
         await client.connect();
 
         const serviceCollections = client.db('carDoctorDB').collection('services')
+        const orderCollections = client.db('carDoctorDB').collection('orders')
 
         app.get('/services', async (req, res) => {
             const cursor = serviceCollections.find();
@@ -43,6 +44,11 @@ async function run() {
             };
             const result = await serviceCollections.findOne(query, options);
             res.send(result);
+        })
+
+        //orders
+        app.post('/orders', (req, res) => {
+            const order = req.body;
         })
 
 
