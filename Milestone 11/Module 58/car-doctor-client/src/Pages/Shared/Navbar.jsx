@@ -24,7 +24,10 @@ const Navbar = () => {
             <li><Link to={'/about'}>About</Link></li>
             {
                 user?.email ?
-                    <li><button onClick={handleLogOut}>Logout</button></li>
+                    <>
+                        <li><Link to={'/checkOutDetails'}>My Orders</Link></li>
+                        <li><button onClick={handleLogOut}>Logout</button></li>
+                    </>
                     :
                     <li><Link to={'/login'}><button>Login</button></Link></li>
             }
