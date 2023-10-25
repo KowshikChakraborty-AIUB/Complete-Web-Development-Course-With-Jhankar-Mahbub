@@ -40,13 +40,22 @@ async function run() {
             const query = { _id: new ObjectId(id) };
             const options = {
                 // Include only the `title` and `imdb` fields in the returned document
-                projection: { service_id: 1, title: 1, price: 1 },
+                projection: { service_id: 1, title: 1, price: 1, img: 1 },
             };
             const result = await serviceCollections.findOne(query, options);
             res.send(result);
         })
 
         //orders
+        app.get('/orders', async (req, res) => {
+            let query = {};
+            if(req.query?.email){
+                query= {email: req.query.email}
+            }
+            const result = await orderCollections.find(query).toArray();
+            res.send(result);
+        })
+
         app.post('/orders', async (req, res) => {
             const order = req.body;
             const result = await orderCollections.insertOne(order);
