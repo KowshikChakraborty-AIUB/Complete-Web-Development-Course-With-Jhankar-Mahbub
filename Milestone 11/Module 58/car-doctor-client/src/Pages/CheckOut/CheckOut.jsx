@@ -5,7 +5,7 @@ import { AuthContext } from "../../Providers/AuthProviders";
 const CheckOut = () => {
 
     const service = useLoaderData();
-    const { service_id, _id, title, price, img} = service;
+    const { service_id, title, price, img} = service;
     const {user} = useContext(AuthContext);
 
     const handleCheckOutOrder = (e) => {

@@ -14,6 +14,24 @@ const CheckOutDetails = () => {
             })
     }, [url])
 
+    const handleDelete = (_id) => {
+        const proceed = confirm('Are you sure?');
+        if(proceed){
+            fetch(`http://localhost:5000/orders/${_id}`, {
+                method: 'DELETE',
+            })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if(data.deletedCount > 0){
+                    alert('Deleted Successfully!')
+                    const remaining = checkOutDetails.filter(details => details._id !== _id)
+                    setCheckOutDetails(remaining);
+                }
+            })
+        }
+    }
+
     return (
         <div className="overflow-x-auto">
             <table className="table">
@@ -36,7 +54,7 @@ const CheckOutDetails = () => {
                 </thead>
                 <tbody>
                    {
-                    checkOutDetails.map(details => <CheckOutDetailsRow key={details._id} details={details}></CheckOutDetailsRow>)
+                    checkOutDetails.map(details => <CheckOutDetailsRow key={details._id} details={details} handleDelete={handleDelete}></CheckOutDetailsRow>)
                    }
                 </tbody>
 
