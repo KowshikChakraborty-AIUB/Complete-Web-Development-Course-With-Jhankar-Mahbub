@@ -1,6 +1,6 @@
-const CheckOutDetailsRow = ({ details, handleDelete }) => {
+const CheckOutDetailsRow = ({ details, handleDelete, handleConfirm }) => {
 
-    const { _id, customerName, email, date, title, dueAmount, img } = details;
+    const { _id, customerName, email, date, title, dueAmount, img, status } = details;
 
     return (
         < tr >
@@ -29,7 +29,12 @@ const CheckOutDetailsRow = ({ details, handleDelete }) => {
             <td>{dueAmount}</td>
             <td>{date}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                {
+                    status === 'Confirmed' ?
+                    <span className="text-green-600 font-bold">Confirmed</span>
+                    :
+                    <button onClick={() => handleConfirm(_id)} className="btn btn-ghost btn-xs">Please Confirm</button>
+                }
             </th>
         </tr >
     );

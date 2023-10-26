@@ -32,6 +32,28 @@ const CheckOutDetails = () => {
         }
     }
 
+    const handleConfirm = (_id) => {
+        fetch(`http://localhost:5000/orders/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type':'application/json'
+            },
+            body: JSON.stringify({status:'Confirmed'})
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.modifiedCount > 0){
+                alert('Confirmed Successfully!')
+                const remaining = checkOutDetails.filter(details => details._id !== _id)
+                const updated = checkOutDetails.find(details => details._id === _id)
+                updated.status = 'Confirmed'
+                const newOrders = [updated, ...remaining];
+                setCheckOutDetails(newOrders);
+            }
+        })
+    }
+
     return (
         <div className="overflow-x-auto">
             <table className="table">
@@ -54,7 +76,7 @@ const CheckOutDetails = () => {
                 </thead>
                 <tbody>
                    {
-                    checkOutDetails.map(details => <CheckOutDetailsRow key={details._id} details={details} handleDelete={handleDelete}></CheckOutDetailsRow>)
+                    checkOutDetails.map(details => <CheckOutDetailsRow key={details._id} details={details} handleDelete={handleDelete} handleConfirm={handleConfirm}></CheckOutDetailsRow>)
                    }
                 </tbody>
 
