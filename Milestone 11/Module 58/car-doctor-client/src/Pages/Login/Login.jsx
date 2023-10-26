@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 import login from '../../assets/images/login/login.svg';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
+import axios from 'axios';
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -15,9 +16,18 @@ const Login = () => {
         console.log(email, password);
 
         signIn(email, password)
-        .then(userCredentials => console.log(userCredentials.user))
-        .catch(error => console.log(error.message))
-        
+            .then(userCredentials => {
+                console.log(userCredentials.user)
+                const user = { email }
+
+                //get access token
+                axios.post('http://localhost:5000/jwt', user)
+                .then(res => {
+                    console.log(res.data);
+                })
+            })
+            .catch(error => console.log(error.message))
+
     }
 
 
@@ -50,7 +60,7 @@ const Login = () => {
                         </div>
                     </form>
                     <p className='my-4 text-center'>
-                        New to Cars Doctors? 
+                        New to Cars Doctors?
                         <Link to={'/signUp'} className='text-orange-600 font-bold'>Sign Up</Link>
                     </p>
                 </div>
