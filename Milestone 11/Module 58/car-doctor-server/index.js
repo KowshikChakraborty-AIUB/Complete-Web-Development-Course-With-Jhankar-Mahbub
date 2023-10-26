@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 const app = express();
 const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
@@ -30,6 +31,15 @@ async function run() {
         const serviceCollections = client.db('carDoctorDB').collection('services')
         const orderCollections = client.db('carDoctorDB').collection('orders')
 
+        //auth related api
+        app.post('/jwt', async(req, res) => {
+            const user = req.body;
+            console.log(user);
+            const token = jwt.sign(user, 'secret', {expiresIn: '1h'})
+            res.send(token);
+        })
+
+        //services
         app.get('/services', async (req, res) => {
             const cursor = serviceCollections.find();
             const result = await cursor.toArray();
