@@ -62,8 +62,17 @@ async function run() {
             res.send(result);
         })
 
-        app.put('/orders/:id', async (req, res) => {
+        app.patch('/orders/:id', async (req, res) => {
+            const id = req.params.id;
+            const filter = {_id : new ObjectId(id)};
             const updatedOrders = req.body;
+            const updatedOrder = {
+                $set : {
+                    status : updatedOrders.status
+                }
+            }
+            const result = await orderCollections.updateOne(filter, updatedOrder)
+            res.send(result);
         })
 
         app.delete('/orders/:id', async(req, res) => {
