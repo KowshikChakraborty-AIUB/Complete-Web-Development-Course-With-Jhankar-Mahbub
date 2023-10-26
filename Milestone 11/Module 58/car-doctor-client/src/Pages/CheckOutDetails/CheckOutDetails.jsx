@@ -1,17 +1,22 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import CheckOutDetailsRow from "./CheckOutDetailsRow/CheckOutDetailsRow";
+import axios from "axios";
 
 const CheckOutDetails = () => {
     const { user } = useContext(AuthContext);
     const [checkOutDetails, setCheckOutDetails] = useState([]);
     const url = `http://localhost:5000/orders?email=${user.email}`
     useEffect(() => {
-        fetch(url)
-            .then(res => res.json())
-            .then(data => {
-                setCheckOutDetails(data);
-            })
+        axios.get(url, {withCredentials: true})
+        .then(res => {
+            setCheckOutDetails(res.data);
+        })
+        // fetch(url)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setCheckOutDetails(data);
+        //     })
     }, [url])
 
     const handleDelete = (_id) => {
