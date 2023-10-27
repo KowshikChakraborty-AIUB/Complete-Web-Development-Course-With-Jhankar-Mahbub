@@ -98,6 +98,9 @@ async function run() {
         app.get('/orders', logger, varifyToken, async (req, res) => {
             //console.log(req.cookies.token);
             console.log('user in the valid token', req.user);
+            if(req.query.email !== req.user.email){
+                return res.status(403).send({message: 'forbidden access'})
+            }
             let query = {};
             if (req.query?.email) {
                 query = { email: req.query.email }
