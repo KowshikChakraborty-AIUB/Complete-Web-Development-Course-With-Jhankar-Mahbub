@@ -28,6 +28,33 @@ const client = new MongoClient(uri, {
     }
 });
 
+
+//custom middleware
+const logger = async (req, res, next) => {
+    console.log('called:', req.host, req.originalUrl);
+    next();
+}
+
+const varifyToken = async (req, res, next) => {
+    const token = req.cookies?.token;
+    console.log('Token in middleware', token);
+    if (!token) {
+        return res.status(401).send({ message: 'Not Authorized!' });
+    }
+
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
+        //error
+        if (err) {
+            console.log(err);
+            return res.status(401).send({ message: 'Unauthorized!' });
+        }
+        // if token is valid, then decoded
+        console.log('Value in the token', decoded);
+        req.user = decoded;
+        next();
+    })
+}
+
 async function run() {
     try {
         // Connect the client to the server	(optional starting in v4.7)
@@ -37,21 +64,21 @@ async function run() {
         const orderCollections = client.db('carDoctorDB').collection('orders')
 
         //auth related api
-        app.post('/jwt', async(req, res) => {
+        app.post('/jwt', logger, async (req, res) => {
             const user = req.body;
             console.log(user);
-            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '1h'})
+            const token = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h' })
             res
-            .cookie('token', token, {
-                httpOnly: true,
-                secure: true,
-                sameSite: 'none'
-            })
-            .send({success: true});
+                .cookie('token', token, {
+                    httpOnly: true,
+                    secure: true,
+                    sameSite: 'none'
+                })
+                .send({ success: true });
         })
 
         //services
-        app.get('/services', async (req, res) => {
+        app.get('/services', logger, async (req, res) => {
             const cursor = serviceCollections.find();
             const result = await cursor.toArray();
             res.send(result);
@@ -68,11 +95,12 @@ async function run() {
         })
 
         //orders
-        app.get('/orders', async (req, res) => {
-            console.log(req.cookies.token);
+        app.get('/orders', logger, varifyToken, async (req, res) => {
+            //console.log(req.cookies.token);
+            console.log('user in the valid token', req.user);
             let query = {};
-            if(req.query?.email){
-                query= {email: req.query.email}
+            if (req.query?.email) {
+                query = { email: req.query.email }
             }
             const result = await orderCollections.find(query).toArray();
             res.send(result);
@@ -86,20 +114,20 @@ async function run() {
 
         app.patch('/orders/:id', async (req, res) => {
             const id = req.params.id;
-            const filter = {_id : new ObjectId(id)};
+            const filter = { _id: new ObjectId(id) };
             const updatedOrders = req.body;
             const updatedOrder = {
-                $set : {
-                    status : updatedOrders.status
+                $set: {
+                    status: updatedOrders.status
                 }
             }
             const result = await orderCollections.updateOne(filter, updatedOrder)
             res.send(result);
         })
 
-        app.delete('/orders/:id', async(req, res) => {
+        app.delete('/orders/:id', async (req, res) => {
             const id = req.params.id;
-            const query = {_id : new ObjectId(id)};
+            const query = { _id: new ObjectId(id) };
             const result = await orderCollections.deleteOne(query);
             res.send(result);
         })
