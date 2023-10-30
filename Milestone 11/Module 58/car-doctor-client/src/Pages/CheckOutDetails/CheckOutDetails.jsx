@@ -1,14 +1,17 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProviders";
 import CheckOutDetailsRow from "./CheckOutDetailsRow/CheckOutDetailsRow";
-import axios from "axios";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const CheckOutDetails = () => {
     const { user } = useContext(AuthContext);
     const [checkOutDetails, setCheckOutDetails] = useState([]);
-    const url = `http://localhost:5000/orders?email=${user.email}`
+    //custom hook
+    const axiosSecure = useAxiosSecure();
+    // const url = `http://localhost:5000/orders?email=${user.email}`
+    const url = `/orders?email=${user.email}`
     useEffect(() => {
-        axios.get(url, {withCredentials: true})
+        axiosSecure.get(url)
         .then(res => {
             setCheckOutDetails(res.data);
         })
@@ -17,7 +20,7 @@ const CheckOutDetails = () => {
         //     .then(data => {
         //         setCheckOutDetails(data);
         //     })
-    }, [url])
+    }, [url, axiosSecure])
 
     const handleDelete = (_id) => {
         const proceed = confirm('Are you sure?');
