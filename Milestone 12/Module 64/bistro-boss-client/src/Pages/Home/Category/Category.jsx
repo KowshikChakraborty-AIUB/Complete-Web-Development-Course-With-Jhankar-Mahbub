@@ -13,10 +13,14 @@ import sliderImage2 from '../../../assets/home/slide2.jpg'
 import sliderImage3 from '../../../assets/home/slide3.jpg'
 import sliderImage4 from '../../../assets/home/slide4.jpg'
 import sliderImage5 from '../../../assets/home/slide5.jpg'
+import SectionTitle from '../../../components/Section Title/SectionTitle';
 
 const Category = () => {
     return (
         <div className='mb-24'>
+            <SectionTitle subHeading={'From 11:00 am to 10:00 pm'}
+                heading={'Order Online'}
+            ></SectionTitle>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
