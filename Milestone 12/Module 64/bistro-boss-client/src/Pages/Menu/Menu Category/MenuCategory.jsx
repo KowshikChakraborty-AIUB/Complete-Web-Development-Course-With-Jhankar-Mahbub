@@ -1,7 +1,17 @@
-const MenuCategory = () => {
+import Cover from "../../Shared/Cover/Cover";
+import MenuItem from "../../Shared/Menu Item/MenuItem";
+
+const MenuCategory = ({ items, title, coverImg }) => {
     return (
-        <div>
-            
+        <div className="pt-8">
+            {
+                title && <Cover menuImg={coverImg} title={title}></Cover>
+            }
+            <div className="grid md:grid-cols-2 gap-6 mt-16">
+                {
+                    items.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
+                }
+            </div>
         </div>
     );
 };

@@ -1,20 +1,39 @@
 import { Helmet } from "react-helmet-async";
 import Cover from "../../Shared/Cover/Cover";
 import menuImg from '../../../assets/menu/banner3.jpg';
-import PopularMenu from "../../Home/Popular Menu/PopularMenu";
+import dessertImg from '../../../assets/menu/dessert-bg.jpeg'
+import pizzaImg from '../../../assets/menu/pizza-bg.jpg'
+import saladImg from '../../../assets/menu/salad-bg.jpg'
+import soupImg from '../../../assets/menu/soup-bg.jpg'
+import useMenu from "../../../hooks/useMenu";
+import SectionTitle from "../../../components/Section Title/SectionTitle";
+import MenuCategory from "../Menu Category/MenuCategory";
 
 const Menu = () => {
+    const [menu] = useMenu();
+    const dessert = menu.filter(item => item.category === 'dessert')
+    const pizza = menu.filter(item => item.category === 'pizza')
+    const soup = menu.filter(item => item.category === 'soup')
+    const salad = menu.filter(item => item.category === 'salad')
+    const todaysOffer = menu.filter(item => item.category === 'offered')
     return (
         <div>
             <Helmet>
                 <title>Bistro Boss | Menu</title>
             </Helmet>
             <Cover menuImg={menuImg} title={'our menu'}></Cover>
-            <PopularMenu></PopularMenu>
-            <Cover menuImg={menuImg} title={'our menu'}></Cover>
-            <PopularMenu></PopularMenu>
-            <Cover menuImg={menuImg} title={'our menu'}></Cover>
-            <PopularMenu></PopularMenu>
+            {/* main cover */}
+            <SectionTitle subHeading={"don't miss"} heading={"Today's offer"}></SectionTitle>
+            {/* offered menu items */}
+            <MenuCategory items={todaysOffer}></MenuCategory>
+            {/* dessert menu items */}
+            <MenuCategory items={dessert} title={'Dessert'} coverImg={dessertImg}></MenuCategory>
+            {/* pizza menu items */}
+            <MenuCategory items={pizza} title={'Pizza'} coverImg={pizzaImg}></MenuCategory>
+            {/* salad menu items */}
+            <MenuCategory items={salad} title={'Salad'} coverImg={saladImg}></MenuCategory>
+            {/* soup menu items */}
+            <MenuCategory items={soup} title={'Soup'} coverImg={soupImg}></MenuCategory>
         </div>
     );
 };
