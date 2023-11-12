@@ -15,7 +15,7 @@ const Navbar = () => {
                     <li><a>Submenu 2</a></li>
                 </ul>
             </li> */}
-            <li><a>Item 3</a></li>
+            <li><Link to={'/login'}>Login</Link></li>
         </>
 
     // const navLinks2 =
