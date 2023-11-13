@@ -25,7 +25,7 @@ const Navbar = () => {
             <li><Link to={'/menu'}>Our Menu</Link></li>
             <li><Link to={'/orderFood/salad'}>Order Food</Link></li>
             <li>
-                <Link to={'/'}>
+                <Link to={'/dashboard/myCart'}>
                     <button className="flex gap-2">
                         <div>
                             Cart
