@@ -5,7 +5,6 @@ import Menu from "../Pages/Menu/Menu/Menu";
 import Order from "../Pages/Order/Order/Order";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Sign Up/SignUp";
-import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +21,7 @@ const router = createBrowserRouter([
         },
         {
           path: '/orderFood/:category',
-          element: <PrivateRoute><Order></Order></PrivateRoute>
+          element: <Order></Order>
         },
         {
           path: '/login',
