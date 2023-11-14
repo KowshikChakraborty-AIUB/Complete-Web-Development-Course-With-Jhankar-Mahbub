@@ -32,10 +32,21 @@ const Dashboard = () => {
                             <FaList /> My Bookings
                         </NavLink>
                     </li>
+                    <div className="divider"></div>
+                    <li>
+                        <NavLink to={'/'}>
+                            <FaHome /> Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to={'/orderFood/salad'}>
+                            <FaList /> Menu
+                        </NavLink>
+                    </li>
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className="flex-1">
+            <div className="flex-1 p-8">
                 <Outlet></Outlet>
             </div>
         </div>
