@@ -4,32 +4,44 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const SignUp = () => {
+    const axiosPublic = useAxiosPublic();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const onSubmit = (data) => {
         console.log(data);
         createUser(data.email, data.password)
-        .then(userCredentials => {
-            console.log(userCredentials.user);
-            updateUserProfile(data.name, data.photoURL)
-            .then(() => {
-                reset();
-                Swal.fire({
-                    position: "center",
-                    icon: "success",
-                    title: "User created Successfully!",
-                    showConfirmButton: false,
-                    timer: 1500
-                  });
-                  navigate('/');
+            .then(userCredentials => {
+                console.log(userCredentials.user);
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        //create user entry in database
+                        const userInfo = {
+                            name: data.name,
+                            email: data.email
+                        }
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: "center",
+                                        icon: "success",
+                                        title: "User created Successfully!",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+                            })
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
             })
-            .catch(err => {
-                console.log(err);
-            })
-        })
     }
     return (
         <>
