@@ -53,6 +53,25 @@ async function run() {
       res.send(result);
     })
 
+    app.patch('/users/admin/:id', async(req, res) => {
+      const id = req.params.id;
+      const filter = {_id: new ObjectId(id)};
+      const updatedDoc = {
+        $set : {
+          role: 'admin'
+        }
+      }
+      const result = await userCollections.updateOne(filter, updatedDoc);
+      res.send(result);
+    })
+
+    app.delete('users/:id', async(req, res) => {
+      const id = req.params.id;
+      const query = {_id: new ObjectId(id)};
+      const result = await userCollections.deleteOne(query);
+      res.send(result);
+    })
+
     //menu related api
     app.get('/menu', async(req, res) => {
         const result = await menuCollections.find().toArray();
