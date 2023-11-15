@@ -35,6 +35,11 @@ async function run() {
     const cartCollections = client.db('bistroBossDB').collection('carts');
 
     //users related api
+    app.get('/users', async(req, res) => {
+      const result = await userCollections.find().toArray();
+      res.send(result);
+    })
+
     app.post('/users', async(req, res) => {
       const user = req.body;
       //insert email if user doesn't exist
