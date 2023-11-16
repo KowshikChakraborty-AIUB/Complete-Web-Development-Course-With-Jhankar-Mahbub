@@ -60,7 +60,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
         })
         return () => { return unsubsribe() }
-    }, [])
+    }, [axiosPublic])
 
     const authInfo = { user, loading, createUser, updateUserProfile, login, googleSignIn, logout };
     return (
