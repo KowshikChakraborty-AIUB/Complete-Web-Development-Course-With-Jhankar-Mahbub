@@ -134,8 +134,10 @@ async function run() {
     })
     app.get('/menu/:id', async (req, res) => {
       const id = req.params.id;
-      const query = { _id: new ObjectId(id) };
+      //menu items were added manually to database with an manual _id. So, no objectId was created by mongodb. That's why the following query has been written like this. [const query = { _id: id };]
+      const query = { _id: id };
       const result = await menuCollections.findOne(query);
+      console.log(result);
       res.send(result);
     })
     app.post('/menu', verifyToken, verifyAdmin, async (req, res) => {
@@ -143,8 +145,23 @@ async function run() {
       const result = await menuCollections.insertOne(menuItem);
       res.send(result);
     })
-    app.path('/menu/:id', async (req, res) => {
-      
+    app.patch('/menu/:id', async (req, res) => {
+      const menuItem = req.body;
+      const id = req.params.id;
+      //menu items were added manually to database with an manual _id. So, no objectId was created by mongodb. That's why the following filter has been written like this. [const filter = { _id: id };]
+      const filter = { _id: id };
+      const updatedDoc = {
+        $set : {
+          name: menuItem.name,
+          category: menuItem.category,
+          price: menuItem.price,
+          recipe: menuItem.recipe,
+          image: menuItem.image
+        }
+      }
+
+      const result = await menuCollections.updateOne(filter, updatedDoc);
+      res.send(result);
     })
     app.delete('/menu/:id', verifyToken, verifyAdmin, async (req, res) => {
       const id = req.params.id;
