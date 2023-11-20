@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useCarts from "../../../hooks/useCarts";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
     const [error, setError] = useState('');
@@ -14,6 +15,7 @@ const CheckoutForm = () => {
     const [carts, refetch] = useCarts();
     const [clientSecret, setClientSecret] = useState('');
     const [transactionId, setTransactionId] = useState('');
+    const navigate = useNavigate();
     const totalPrice = carts.reduce((total, item) => {
         return total + item.price;
     }, 0)
@@ -90,14 +92,15 @@ const CheckoutForm = () => {
                 const res = await axiosSecure.post('/payments', payment);
                 console.log('payment saved', res.data);
                 refetch();
-                if(res.data?.result?.insertedId){
+                if (res.data?.result?.insertedId) {
                     Swal.fire({
                         position: "center",
                         icon: "success",
                         title: "Payment done successfully!",
                         showConfirmButton: false,
                         timer: 1500
-                      });
+                    });
+                    navigate('/dashboard/paymentHistory');
                 }
             }
         }
