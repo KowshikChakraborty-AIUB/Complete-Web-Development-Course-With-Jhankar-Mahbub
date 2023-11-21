@@ -25,6 +25,7 @@ const useAxiosSecure = () => {
         return response;
     }, async (err) => {
         console.log('status err in the interceptor', err);
+        console.log('full error response', err.response);
         const status = err.response.status;
         //console.log('Status error in the interceptor', status);
         if (status === 401 || status === 403) {

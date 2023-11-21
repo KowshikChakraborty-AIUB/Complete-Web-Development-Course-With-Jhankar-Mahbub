@@ -7,6 +7,8 @@ const AdminHome = () => {
             <h2 className="text-3xl">
                 <span>
                     Hi, Welcome
+                </span>
+                <span className="ml-2">
                     {
                         user.displayName
                             ?
