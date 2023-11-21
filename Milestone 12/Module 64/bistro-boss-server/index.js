@@ -56,7 +56,7 @@ async function run() {
       // }
       jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
         if (err) {
-          return res.status(401).send({ message: 'unauthorized access' })
+          return res.send({ message: 'unauthorized access' })
         }
         req.decoded = decoded;
         next();
@@ -217,7 +217,7 @@ async function run() {
 
     app.get('/payments/:email', verifyToken, async (req, res) => {
       const query = { email: req.params.email };
-      if (req.params.email !== req.decoded) {
+      if (req.params.email !== req.decoded.email) {
         return res.status(403).send({ message: 'forbidden access' });
       }
       const result = await paymentCollections.find(query).toArray();
