@@ -253,7 +253,7 @@ async function run() {
       // const payments = await paymentCollections.find().toArray();
       // const revenue = payments.reduce((total, payment) => total + payment.price, 0);
 
-      
+
       //better way to calculate revenue
       const result = await paymentCollections.aggregate([
         {
@@ -272,6 +272,35 @@ async function run() {
         orders,
         revenue
       })
+    })
+
+    //using aggregate pipeline
+    app.get('/orderStats', async (req, res) => {
+      const result = await paymentCollections.aggregate([
+        {
+          $unwind: '$menuIds'
+        },
+        {
+          $lookup: {
+            from: 'menu',
+            localField: 'menuIds',
+            foreignField: '_id',
+            as: 'menuItems'
+          }
+        },
+        {
+          $unwind: '$menuItems'
+        },
+        {
+          $group: {
+            _id: '$menuItems.category',
+            quantity: { $sum: 1 },
+            revenue: { $sum: '$menuItems.price' }
+          }
+        }
+      ]).toArray();
+
+      res.send(result);
     })
 
     // Send a ping to confirm a successful connection
