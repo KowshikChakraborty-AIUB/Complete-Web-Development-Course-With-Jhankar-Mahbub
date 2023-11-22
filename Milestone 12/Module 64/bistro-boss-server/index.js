@@ -56,7 +56,7 @@ async function run() {
       // }
       jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, decoded) => {
         if (err) {
-          return res.send({ message: 'unauthorized access' })
+          return res.status(401).send({ message: 'unauthorized access' })
         }
         req.decoded = decoded;
         next();
