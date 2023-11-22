@@ -244,7 +244,7 @@ async function run() {
 
     //stats or analytics
 
-    app.get('/adminStats', async (req, res) => {
+    app.get('/adminStats', verifyToken, verifyAdmin, async (req, res) => {
       const users = await userCollections.estimatedDocumentCount();
       const menuItems = await menuCollections.estimatedDocumentCount();
       const orders = await paymentCollections.estimatedDocumentCount();
@@ -253,13 +253,18 @@ async function run() {
       // const payments = await paymentCollections.find().toArray();
       // const revenue = payments.reduce((total, payment) => total + payment.price, 0);
 
+      
+      //better way to calculate revenue
       const result = await paymentCollections.aggregate([
         {
           $group: {
-            
+            _id: null,
+            revenue: { $sum: '$price' }
           }
         }
-      ])
+      ]).toArray();
+
+      const revenue = result.length > 0 ? result[0].revenue : 0;
 
       res.send({
         users,
