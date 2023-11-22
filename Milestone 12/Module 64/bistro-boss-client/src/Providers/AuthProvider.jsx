@@ -41,8 +41,6 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubsribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-
             //get token & store client
             if(currentUser){
                 const userInfo = {email: currentUser.email}
@@ -50,6 +48,7 @@ const AuthProvider = ({ children }) => {
                 .then(res => {
                     if(res.data.token){
                         localStorage.setItem('access_token', res.data.token)
+                        setUser(currentUser);
                     }
                 })
             }
@@ -59,6 +58,7 @@ const AuthProvider = ({ children }) => {
             }
             setLoading(false);
         })
+
         return () => { return unsubsribe() }
     }, [axiosPublic])
 
